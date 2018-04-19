@@ -1,0 +1,12 @@
+1 init 3
+1 empty
+1 enqueue mamma
+1 enqueue ciao
+1 enqueue metti
+1 full
+1 enqueue troppo
+1 dequeue
+1 empty
+1 dequeue
+1 dequeue
+1 dequeue

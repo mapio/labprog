@@ -1,0 +1,26 @@
+2 init 3
+2 dequeue
+2 empty
+2 enqueue troppo
+1 init 3
+1 empty
+2 enqueue metti
+1 enqueue mamma
+1 dequeue
+1 dequeue
+2 dequeue
+1 empty
+1 full
+2 empty
+1 dequeue
+1 dequeue
+1 enqueue metti
+1 enqueue troppo
+2 dequeue
+2 dequeue
+2 empty
+2 enqueue mamma
+1 full
+2 enqueue ciao
+1 enqueue ciao
+2 full

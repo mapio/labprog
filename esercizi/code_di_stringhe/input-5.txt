@@ -1,0 +1,60 @@
+3 init 3
+3 dequeue
+3 enqueue troppo
+1 init 3
+1 enqueue metti
+4 init 3
+4 enqueue mamma
+4 empty
+2 init 3
+2 dequeue
+4 enqueue metti
+4 dequeue
+1 dequeue
+1 empty
+2 full
+2 empty
+3 empty
+3 dequeue
+4 full
+1 empty
+4 empty
+1 enqueue mamma
+1 dequeue
+2 enqueue mamma
+3 enqueue mamma
+2 enqueue metti
+3 dequeue
+2 dequeue
+1 empty
+4 empty
+4 enqueue troppo
+2 enqueue ciao
+3 empty
+2 enqueue troppo
+4 dequeue
+4 dequeue
+3 empty
+4 enqueue ciao
+3 enqueue metti
+3 full
+1 enqueue troppo
+1 dequeue
+2 empty
+1 enqueue ciao
+4 dequeue
+1 full
+2 empty
+3 dequeue
+2 dequeue
+3 enqueue ciao
+2 dequeue
+1 dequeue
+1 empty
+1 full
+2 empty
+2 full
+3 empty
+3 full
+4 empty
+4 full

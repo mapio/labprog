@@ -1,0 +1,15 @@
+init 5
+push uno
+push due
+push tre
+push quattro
+empty
+push cinque
+full
+pop
+top
+pop
+pop
+pop
+empty
+pop

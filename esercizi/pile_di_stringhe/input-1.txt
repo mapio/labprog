@@ -1,0 +1,13 @@
+1 init 3
+1 empty
+1 push mamma
+1 push ciao
+1 top
+1 push metti
+1 full
+1 push troppo
+1 pop
+1 empty
+1 pop
+1 pop
+1 pop

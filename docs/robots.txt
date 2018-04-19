@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /_static/
+Disallow: /_images/
+Allow: /_static/logo.png 

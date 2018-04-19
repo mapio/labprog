@@ -1,0 +1,9 @@
+false
+true
+"cinque"
+"quattro"
+"quattro"
+"tre"
+"due"
+false
+"uno"

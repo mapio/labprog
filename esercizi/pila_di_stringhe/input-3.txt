@@ -1,0 +1,8 @@
+init 1
+push ciao
+push no
+top
+empty
+pop
+empty
+pop

@@ -1,0 +1,1437 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduzione a GNU/Linux &#8212; Labprog @ UniMI 1.0-beta documentazione</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.0/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="_static/custom.css" type="text/css">
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css">
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Input/output (ed altro) con le API di Java" href="javaio.html" />
+    <link rel="prev" title="Gli Strumenti" href="strumenti.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+
+    <!-- Verification for Google search -->
+    <meta name="google-site-verification" content="DLtR6Lm75qujQDCAeHv1Am-h5-g69PdfKA-r8Ut-6JY">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mapio">
+    <meta name="twitter:creator" content="@mapio">
+    <meta name="twitter:title" content="LabProg@UniMI — Dieci anni di codice">
+    <meta name="twitter:description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+    <meta name="twitter:image" content="https://labprog.mapio.it/_static/logo.png">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="LabProg@UniMI — Dieci anni di codice">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://labprog.mapio.it/">
+    <meta property="og:image" content="https://labprog.mapio.it/_static/logo.png">
+    <meta property="og:description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+    <meta property="og:site_name" content="LabProg@UniMI — Dieci anni di codice">
+    <meta property="article:published_time" content="2019-01-25T08:55:00.809614">
+    <meta property="article:modified_time" content="2019-01-25T08:55:00.809614">
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#eaf7f7",
+          "text": "#5c7291"
+        },
+        "button": {
+          "background": "#56cbdb",
+          "text": "#ffffff"
+        }
+      },
+      "position": "bottom-right",
+      "content": {
+        "message": "Questo sito utilizza cookie per raccogliere informazioni, in forma aggregata, sul numero degli utenti.",
+        "dismiss": "Va bene!",
+        "link": "Maggiori informazioni.",
+        "href": "http://www.unimi.it/62210.htm"
+      }
+    })});
+    </script>
+
+  </head><body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html">LabProg@UniMI</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="esercizi.html">Esercizi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="strumenti.html">Strumenti</a>
+      </li>
+      <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Guide
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="linux.html">GNU/Linux</a>
+               <a class="dropdown-item" href="javaio.html">Java I/O</a>
+               <a class="dropdown-item" href="cstdio.html">C I/O</a>
+             </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-list-alt"></i>
+          </a>
+          <div class="dropdown-menu tocnav" aria-labelledby="navbarDropdown2">
+          <ul>
+<li><a class="reference internal" href="#">Introduzione a GNU/Linux</a><ul>
+<li><a class="reference internal" href="#documentazione-on-line">Documentazione on-line</a></li>
+<li><a class="reference internal" href="#l-interprete-dei-comandi">L'interprete dei comandi</a><ul>
+<li><a class="reference internal" href="#identificare-i-file">Identificare i file</a></li>
+<li><a class="reference internal" href="#la-directory-corrente">La directory corrente</a></li>
+<li><a class="reference internal" href="#manipolare-directory-e-file">Manipolare directory e file</a></li>
+<li><a class="reference internal" href="#l-espansione-dei-caratteri-speciali">L'espansione dei caratteri speciali</a></li>
+<li><a class="reference internal" href="#programmare-semplici-script">Programmare semplici script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#redirezione-e-input-output-standard">Redirezione e input/output standard</a><ul>
+<li><a class="reference internal" href="#redirezione-da-a-file">Redirezione da/a file</a></li>
+<li><a class="reference internal" href="#pipe-tra-comandi">Pipe tra comandi</a></li>
+<li><a class="reference internal" href="#ancora-redirezione">Ancora redirezione</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#filtri">Filtri</a><ul>
+<li><a class="reference internal" href="#selezionare-righe-e-colonne">Selezionare righe e colonne</a></li>
+<li><a class="reference internal" href="#semplici-manipolazioni">Semplici manipolazioni</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#proprieta-e-permessi">Proprietà e permessi</a><ul>
+<li><a class="reference internal" href="#utenti-e-gruppi">Utenti e gruppi</a></li>
+<li><a class="reference internal" href="#proprieta-di-file-e-directory">Proprietà di file e directory</a></li>
+<li><a class="reference internal" href="#i-processi">I processi</a></li>
+<li><a class="reference internal" href="#mettiamo-assieme-le-cose">Mettiamo assieme le cose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="search.html" method="get">
+      <input name="q" class="form-control mr-sm-2" type="text" placeholder="parola chiave">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Cerca</button>
+    </form>
+  </div>
+</nav>
+  
+
+    <div class="document">
+    <main class="container">
+        
+  <div class="section" id="introduzione-a-gnu-linux">
+<span id="linux-label"></span><h1>Introduzione a GNU/Linux<a class="headerlink" href="#introduzione-a-gnu-linux" title="Link a questa intestazione">¶</a></h1>
+<p>Questi brevissimi appunti sono stati redatti nel 2002 come supporto per il
+corso &quot;Introduzione a GNU/Linux&quot; e sono ispirati agli appunti &quot;Linux4IOI&quot;
+predisposti in occasione degli allenamenti della squadra italiana che ha
+partecipato alle IOI (International Olympiad in Informatics).</p>
+<p>La scelta di GNU/Linux come (sistema di tipo) Unix illustrato in questi
+appunti corrisponde al duplice desiderio di mettere da un lato gli studenti in
+grado di sperimentare direttamente le nozioni introdotte durante le lezioni di
+laboratorio (dal momento che GNU/Linux è installabile, senza costo, sui più
+comuni PC), offrendo dall'altro la possibilità di illustrare i concetti profondi
+e gli strumenti potenti che sono tipici di Unix.</p>
+<p>L'oggetto centrale della discussione sarà l'interprete dei comandi, denominato
+<em>shell</em>, ossia il programma che il sistema esegue non appena un utente si
+collega ad esso e che costituisce, per così dire, la principale interfaccia
+tramite la quale Unix colloquia con l'utente.</p>
+<p>Attraverso la discussione del funzionamento della <em>shell</em> saranno introdotti
+alcuni concetti elementari riguardo a: <em>filesystem</em>, <em>processi</em> e sistema dei
+<em>permessi</em> che caratterizzano Unix.</p>
+<p>Infine, particolare attenzione sarà dedicata all'utilizzo dei <em>filtri</em>, basati
+sulla nozione di redirezione dell'input/output, che costituiscono uno degli
+strumenti più potenti messi a disposizione da Unix.</p>
+<p>L'utilizzo dei filtri sarà mostrato attraverso una breve antologia di utilità
+tra le più comuni del <em>toolset</em> standard di Unix per la manipolazione di file
+di testo.</p>
+<div class="section" id="documentazione-on-line">
+<h2>Documentazione on-line<a class="headerlink" href="#documentazione-on-line" title="Link a questa intestazione">¶</a></h2>
+<p>Di seguito accenneremo ad alcuni comandi e informazioni ma, per ovvie ragioni
+di spazio e tempo, le informazioni potranno risultare scarne e talvolta
+approssimative. Come fare a reperire maggiori dettagli? Unix è in generale
+molto povero di messaggi diagnostici ed informativi quando eseguite un
+comando: in generale, si assume che nessun messaggio voglia dire tutto bene,
+ma come fare se non sappiamo quali opzioni usare, o a cosa serve un comando?</p>
+<p>I comandi <strong class="command">man</strong> e <strong class="command">info</strong> offrono un aiuto poderoso in questo
+caso. Se li invochiamo seguiti dal nome di un comando, essi visualizzano le
+informazioni che il sistema mette a disposizione circa quel comando. Ad
+esempio, con <code class="samp docutils literal notranslate"><span class="pre">man</span> <span class="pre">man</span></code> otterremo un aiuto su come utilizzare il comando
+<strong class="command">man</strong> stesso:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> man man
+
+<span class="go">NAME</span>
+<span class="go">       man - format and display the on-line manual pages</span>
+<span class="go">       manpath - determine user&#39;s search path for man pages</span>
+
+<span class="go">SYNOPSIS</span>
+<span class="go">       man  [-acdfFhkKtwW]  [-m  system] [-p string] [-C config_file] [-M path] [-P pager]</span>
+<span class="go">       [-S section_list] [section] name ...</span>
+
+<span class="go">DESCRIPTION</span>
+<span class="go">       man formats and displays the on-line manual pages.  This version  knows  about  the</span>
+<span class="go">       MANPATH  and  (MAN)PAGER  environment variables, so you can have your own set(s) of</span>
+<span class="go">       personal man pages and choose whatever program you like to  display  the  formatted</span>
+<span class="go">       pages.  If section is specified, man only looks in that section of the manual.  You</span>
+<span class="go">       may also specify the order to search the sections for entries and which  preproces-</span>
+<span class="go">       sors  to run on the source files via command line options or environment variables.</span>
+<span class="go">       If name contains a / then it is first tried as a filename, so that you can  do  man</span>
+<span class="go">       ./foo.5 or even man /cd/foo/bar.1.gz.</span>
+
+<span class="go">OPTIONS</span>
+<span class="go">       -C  config_file</span>
+<span class="go">              Specify  the  man.conf  file  to  use; the default is /etc/man.config.  (See</span>
+<span class="go">              man.conf(5).)</span>
+</pre></div>
+</div>
+<p>A una breve descrizione del comando segue la sua &quot;sinossi&quot;, ovvero
+la sintassi secondo la quale può essere invocato. Usualmente si ha il
+<em>comando</em> (nell'esempio: <strong class="command">man</strong>) seguito da alcune <em>opzioni</em>, ciascuna
+usualmente preceduta da uno o due trattini <code class="samp docutils literal notranslate"><span class="pre">-</span></code>, (ancora nell'esempio:
+<code class="samp docutils literal notranslate"><span class="pre">[-acdfFhkKtwW]</span> <span class="pre">[-m</span> <span class="pre">system]</span> <span class="pre">[-p</span> <span class="pre">string]</span> <span class="pre">[-C</span> <span class="pre">config_file]</span> <span class="pre">[-M</span> <span class="pre">path]</span> <span class="pre">[-P</span>
+<span class="pre">pager]</span> <span class="pre">[-S</span> <span class="pre">section_list]</span></code>) e infine, dagli <em>argomenti</em> (sempre nell'esempio:
+<code class="samp docutils literal notranslate"><span class="pre">[section]</span> <span class="pre">name</span> <span class="pre">...</span></code>).</p>
+<p>Alcune <em>convenzioni sintattiche</em> molto comuni sono l'uso delle parentesi
+quadre <code class="samp docutils literal notranslate"><span class="pre">[]</span></code> che indicano che quello che racchiudono è <em>opzionale</em> (ossia
+che può essere presente, o meno) e l'uso dei puntini di sospensione
+<code class="samp docutils literal notranslate"><span class="pre">...</span></code> che indicano la possibilità di ripetere l'elemento che li precede
+per un numero indefinito di volte. Osservate che usualmente, tranne se
+diversamente specificato, le opzioni possono essere raggruppate e precedute da
+un singolo trattino (invece che da uno per ogni opzione).</p>
+<p>Alla sinossi segue una descrizione dettagliata (che nell'esempio è stata
+troncata) sia del comando che del significato delle opzioni e degli argomenti.
+Utilizzando <strong class="command">man</strong> per tutti i comandi che saranno presentati in
+seguito potrete chiarirvi le idee sui dettagli e su tutto quello che la
+sintesi non permetterà di raccontare di seguito.</p>
+<p>Potete &quot;muovervi&quot; nella lettura del manuale utilizzando le frecce, o
+la barra spaziatrice, e potete <em>terminare la lettura</em> premendo il tasto
+<kbd class="kbd docutils literal notranslate">q</kbd>. (In realtà, quando leggete il manuale state utilizzando oltre al
+comando <strong class="command">man</strong> un comando di visualizzazione che vi permette di
+&quot;muovervi&quot; nel documento che costituisce il manuale, tale comando
+(che si chiama usualmente <em>pager</em>) può essere <strong class="command">less</strong>, o
+<strong class="command">more</strong>. Se volete imparare come utilizzarlo... <code class="samp docutils literal notranslate"><span class="pre">man</span> <span class="pre">less</span></code>!).</p>
+<p>Il comando <strong class="command">info</strong> offre talvolta informazioni più accurate ed
+esaustive, ma è meno semplice da utilizzare. Dopo averlo invocato potete avere
+istruzioni sul suo funzionamento premendo contemporaneamente il tasto
+<kbd class="kbd docutils literal notranslate">ctrl</kbd> ed il tasto <kbd class="kbd docutils literal notranslate">h</kbd>, mentre potete uscire premendo il tasto
+<kbd class="kbd docutils literal notranslate">q</kbd>.</p>
+<p>Se volete avere una copia in formato PDF di una pagina del manuale (per
+poterla stampare e leggere con calma), potete usare l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-t</span></code>,
+(ed il <strong class="command">ps2pdf</strong> per convertire l'output da PostScript a PDF) come ad
+esempio in:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">man -t man | ps2pdf - man.pdf</span>
+</pre></div>
+</div>
+<p>aprendo quindi il file <code class="file docutils literal notranslate"><span class="pre">man.pdf</span></code> con il vostro viewer preferito per i
+PDF.</p>
+</div>
+<div class="section" id="l-interprete-dei-comandi">
+<h2>L'interprete dei comandi<a class="headerlink" href="#l-interprete-dei-comandi" title="Link a questa intestazione">¶</a></h2>
+<p>Una delle più comuni shell nel mondo Unix (e quindi Linux, ma, in particolare,
+che avrete a disposizione alle IOI) è la <em>bash</em>. Potete accertarvi di
+questo fatto chiedendo al sistema l'elenco dei processi attivi tramite il
+comando <strong class="command">ps</strong>, ad esempio, sul mio sistema in questo momento si ha:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ps
+<span class="go">  PID TTY          TIME CMD</span>
+<span class="go"> 1088 pts/3    00:00:00 bash</span>
+<span class="go"> 7136 pts/3    00:00:00 ps</span>
+</pre></div>
+</div>
+<p>dove il segno di <code class="samp docutils literal notranslate"><span class="pre">$</span></code> è il cosiddetto &quot;prompt&quot; ossia il segnale tramite
+il quale la bash indica che è pronta a ricevere comandi dall'utente,
+<strong class="command">ps</strong> è il comando che ho dato (in seguito assumeremo sempre che sulla
+riga del prompt ci sia il comando che dovete dare per ottenere il risultato
+citato nell'esempio) e, sulle righe seguenti, c'è l'output del comando, che
+indica sulla prima riga (in fondo) il nome <code class="samp docutils literal notranslate"><span class="pre">bash</span></code> come il nome di uno
+dei processi in esecuzione.</p>
+<p>Moltissime delle cose che diremo in questi appunti restano vere anche usando
+altri interpreti di comandi, in quanto sono del tutto standard e valide in
+generale. Ad ogni modo, assumiamo che d'ora in poi useremo sempre solo la
+bash; se il comando precedente avesse riportato un esito diverso (ossia, se la
+stringa <code class="samp docutils literal notranslate"><span class="pre">bash</span></code> non dovesse comparire affatto), potete eseguire
+manualmente l'interprete mediante il comando <strong class="command">bash</strong>. (Oppure potete
+cambiare definitivamente la shell che il sistema eseguirà ad ogni collegamento
+con il comando <strong class="command">chsh</strong>).</p>
+<div class="section" id="identificare-i-file">
+<h3>Identificare i file<a class="headerlink" href="#identificare-i-file" title="Link a questa intestazione">¶</a></h3>
+<p>Unix ha un filesystem gerarchico, il che vuol dire che tutti i suoi file sono
+organizzati in una struttura &quot;ad albero&quot; a partire da una directory radice (per
+l'appunto, la <em>root</em> del filesystem) che, come ogni directory del sistema, può
+contenere a sua volta altre directory, oppure file. Ad esempio, parte del
+filesystem della mio sistema è (secondo il comando <strong class="command">tree</strong>):</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">/</span>
+<span class="go">|-- bin</span>
+<span class="go">|-- boot</span>
+<span class="go">|-- dev</span>
+<span class="go">|-- etc</span>
+<span class="go">|-- home</span>
+<span class="go">|   |-- ilenia</span>
+<span class="go">|   `-- santini</span>
+<span class="go">|       |-- Linux4IOI.html</span>
+<span class="go">|-- lib</span>
+<span class="go">|   |-- modules</span>
+<span class="go">|-- mnt</span>
+<span class="go">|   |-- cdrom</span>
+<span class="go">|   |-- floppy</span>
+<span class="go">|-- opt</span>
+<span class="go">|   |-- jdk</span>
+<span class="go">|-- root</span>
+<span class="go">|-- tmp</span>
+<span class="go">|-- usr</span>
+<span class="go">`-- var</span>
+<span class="go">    |-- log</span>
+<span class="go">    |   |-- httpd</span>
+<span class="go">    |-- spool</span>
+<span class="go">        |-- mail</span>
+<span class="go">            |-- santini.mbox</span>
+<span class="go">            |-- ilenia.mbox</span>
+<span class="go">            |-- root.mbox</span>
+</pre></div>
+</div>
+<p>Potete osservare (alcune) sottodirectory della root <code class="file docutils literal notranslate"><span class="pre">/</span></code> come <code class="file docutils literal notranslate"><span class="pre">bin</span></code>,
+<code class="file docutils literal notranslate"><span class="pre">usr</span></code>, <code class="file docutils literal notranslate"><span class="pre">var</span></code> e la directory <code class="file docutils literal notranslate"><span class="pre">home</span></code> dove sono contenuti i dati
+degli utenti, con le sue sottodirectory <code class="file docutils literal notranslate"><span class="pre">ilenia</span></code> e <code class="file docutils literal notranslate"><span class="pre">santini</span></code>; sempre
+a titolo di esempio, sono riportati anche alcuni file. <code class="file docutils literal notranslate"><span class="pre">Linux4IOI.html</span></code>,
+<code class="file docutils literal notranslate"><span class="pre">santini.mbox</span></code>, <code class="file docutils literal notranslate"><span class="pre">ilenia.mbox</span></code> e <code class="file docutils literal notranslate"><span class="pre">root.mbox</span></code>.</p>
+<p>Una directory, o file, viene identificato tramite il <em class="dfn">percorso</em> che è
+necessario fare per raggiungerla. Se tale percorso parte dalla radice, viene
+detto <em class="dfn">assoluto</em>, ad esempio, il percorso assoluto del file
+<code class="file docutils literal notranslate"><span class="pre">Linux4IOI.html</span></code> è <code class="file docutils literal notranslate"><span class="pre">/home/santini/Linux4IOI.html</span></code> e il percorso
+assoluto della directory <code class="file docutils literal notranslate"><span class="pre">mail</span></code> è <code class="file docutils literal notranslate"><span class="pre">/var/spool/mail</span></code>.</p>
+<p>È però possibile una &quot;scorciatoia&quot; per consentire una più rapida
+identificazione delle directory, o file. A tale scopo, ad ogni processo (e
+quindi, anche alla shell) è associata una <em class="dfn">directory corrente</em> che può
+essere una qualunque directory del sistema. Un processo può pertanto
+identificare una directory, o file, tramite il percorso che è necessario fare
+per raggiungerla a partire dalla directory corrente, in questo caso, il
+percorso viene detto <em class="dfn">relativo</em>. Ancora per esempio, se la directory
+corrente della shell fosse <code class="file docutils literal notranslate"><span class="pre">/home</span></code>, allora esso potrebbe identificare il
+file <code class="file docutils literal notranslate"><span class="pre">Linux4IOI.html</span></code> mediante il percorso relativo
+<code class="file docutils literal notranslate"><span class="pre">santini/Linux4IOI.html</span></code>.</p>
+<p>Osservate che è immediato comprendere se un percorso è assoluto, o relativo: è
+del primo tipo se inizia con <code class="samp docutils literal notranslate"><span class="pre">/</span></code>, mentre è del secondo tipo
+altrimenti. Ed è anche immediato comprendere cosa identifica un percorso
+relativo: a partire da esso si può infatti sempre ottenere il percorso
+assoluto corrispondente semplicemente anteponendogli il percorso (assoluto)
+della directory corrente. Nell'esempio, <code class="file docutils literal notranslate"><span class="pre">/home</span></code> seguito da
+<code class="file docutils literal notranslate"><span class="pre">santini/Linux4IOI.html</span></code> identifica
+<code class="file docutils literal notranslate"><span class="pre">/home/santini/Linux4IOI.html</span></code>. Tenete sempre ben presente che il
+percorso relativo dipende dalla directory corrente che (vedremo come) può
+essere mutata e comunque dipende dal processo corrente. L'unica
+&quot;identificazione permanente&quot; di un file (indipendente dai vari
+processi e dalle rispettive directory correnti), è il suo percorso assoluto.</p>
+<p>Sono possibili altre scorciatoie. Ogni directory contiene infatti due
+directory speciali, denominate <code class="file docutils literal notranslate"><span class="pre">.</span></code> e <code class="file docutils literal notranslate"><span class="pre">..</span></code>, la prima è un
+sinonimo per la directory stessa, mentre la seconda è un sinonimo per la
+directory &quot;padre&quot; (ossia quella che la precede nel percorso assoluto). Così,
+ad esempio, <code class="file docutils literal notranslate"><span class="pre">/home/santini/..</span></code> coincide con <code class="file docutils literal notranslate"><span class="pre">/home</span></code>. La
+comodità di tali scorciatoie appare immediatamente considerando i percorsi
+relativi. Supponiamo che la directory corrente sia <code class="file docutils literal notranslate"><span class="pre">/home/ilenia</span></code>,
+allora il percorso relativo <code class="file docutils literal notranslate"><span class="pre">../santini/Linux4IOI.html</span></code> identifica
+il file <code class="file docutils literal notranslate"><span class="pre">/home/santini/Linux4IOI.html</span></code>.</p>
+<p>Per finire, osserviamo che a ciascun utente del sistema è usualmente associata
+una directory particolare, detta <em>home directory</em>, nella quale l'utente
+può mantenere i propri dati. All'atto del collegamento col sistema
+(<em>login</em>), viene eseguita la shell e gli viene associata come directory
+corrente la sua home directory.</p>
+<p>Tutte le volte che nel seguito si userà il termine percorso (per identificare
+una directory, o file) faremo quindi riferimento ai concetti qui introdotti;
+in particolare, nella documentazione, i termini <em>path</em>,
+<em>pathname</em> e anche <em>dir</em>, <em>file</em>, o <em>filename</em> si
+riferiscono spesso all'identificazione (tramite percorso assoluto, o relativo)
+di directory e file.</p>
+</div>
+<div class="section" id="la-directory-corrente">
+<h3>La directory corrente<a class="headerlink" href="#la-directory-corrente" title="Link a questa intestazione">¶</a></h3>
+<p>Come detto in precedenza, ad ogni processo è associata una directory del
+sistema, detta directory corrente. In particolare, la bash mette a
+disposizione alcuni comandi per conoscere l'attuale directory corrente e per
+modificarla.</p>
+<p>Il comando <strong class="command">pwd</strong> restituisce la directory corrente, così, sul mio
+sistema, ad esempio (in questo momento):</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">pwd</span> /home/santini
+</pre></div>
+</div>
+<p>Il comando <strong class="command">cd</strong> serve a mutare la directory corrente in quella
+indicata, ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> /home
+</pre></div>
+</div>
+<p>rende <code class="file docutils literal notranslate"><span class="pre">/home</span></code> la directory corrente della shell. Se eseguito senza
+argomenti, il comando rende la home directory la directory corrente. Una cosa
+molto comoda da utilizzare è l'argomento <code class="samp docutils literal notranslate"><span class="pre">-</span></code>, che riporta la
+directory corrente all'ultima directory corrente che precede quella attuale,
+ossia se ad esempio la directory corrente fosse <code class="file docutils literal notranslate"><span class="pre">/home</span></code>, allora i
+comandi:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> santini
+<span class="gp">$</span> <span class="nb">cd</span> -
+</pre></div>
+</div>
+<p>avrebbero come effetto quello di far mutare la directory corrente a
+<code class="file docutils literal notranslate"><span class="pre">/home/santini</span></code> e poi di nuovo a <code class="file docutils literal notranslate"><span class="pre">/home</span></code>. Questo è molto
+comodo per &quot;tornare sui propri passi&quot;</p>
+<p>Osserviamo che esistono due comandi, <strong class="command">pushd</strong> e <strong class="command">popd</strong>
+che consentono di cambiare la directory corrente mantenendo uno <em>stack</em> delle
+directory attraversate, controllate sul manuale per ulteriori dettagli.</p>
+</div>
+<div class="section" id="manipolare-directory-e-file">
+<h3>Manipolare directory e file<a class="headerlink" href="#manipolare-directory-e-file" title="Link a questa intestazione">¶</a></h3>
+<p>Copiare e spostare directory e file è immediato quando si ha chiaro come il
+sistema li identifica. Il comando per copiare è <strong class="command">cp</strong> e quello per
+spostare è <strong class="command">mv</strong>. La sinossi di entrambi è il comando seguito da un
+elenco di file e/o directory. Se l'elenco comprende due soli elementi, allora
+sarà copiato/spostato il primo sul secondo, se invece l'elenco comprende più
+elementi, allora l'ultimo elemento deve identificare una directory; in questo
+caso, tutto quello che è identificato dagli elementi dell'elenco (tranne
+l'ultimo) verrà copiato/spostato nella directory indicata dall'ultimo
+argomento.</p>
+<p>Ad esempio, se la directory corrente è <code class="file docutils literal notranslate"><span class="pre">/home/ilenia</span></code> e vogliamo
+copiare il file <code class="file docutils literal notranslate"><span class="pre">Linux4IOI.html</span></code> al suo interno useremo il comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cp ../santini/Linux4IOI.html .
+</pre></div>
+</div>
+<p>dove avremo usato le scorciatoie <code class="file docutils literal notranslate"><span class="pre">..</span></code> e <code class="file docutils literal notranslate"><span class="pre">.</span></code>
+rispettivamente per reperire <code class="file docutils literal notranslate"><span class="pre">Linux4IOI.html</span></code> usando un percorso
+relativo e per indicare (sempre con un percorso relativo) la directory
+corrente.</p>
+<p>Similmente, se volessimo muovere le directory <code class="file docutils literal notranslate"><span class="pre">modules</span></code> e
+<code class="file docutils literal notranslate"><span class="pre">jdk</span></code> sotto <code class="file docutils literal notranslate"><span class="pre">santini</span></code> potremmo usare il comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mv /lib/modules /opt/jdk /home/santini
+</pre></div>
+</div>
+<p>dove abbiamo fatto uso soltanto di percorsi assoluti.</p>
+<p>Per creare una directory, usate il comando <strong class="command">mkdir</strong> seguito dal nome
+della directory.</p>
+<p>Cancellare file è molto semplice (quindi pericoloso), basta usare il comando
+<strong class="command">rm</strong> seguito dalla lista dei file da cancellare. Usato con
+l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-i</span></code> il comando chiede conferma prima di ogni
+cancellazione.</p>
+<p>Si possono solamente cancellare directory vuote (questo per sicurezza),
+tramite il comando <strong class="command">rmdir</strong> seguito dal nome della directory.</p>
+<p>Se volete farvi male, potete cancellare ricorsivamente un intero sottoalbero
+con l'opzione di azione ricorsiva di <strong class="command">rm</strong>. Essa può discendere molte
+directory e quindi chiedere potenzialmente l'approvazione a molte
+cancellazioni, per ridurre la sua verbosità si usa in generale in congiunzione
+con l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-f</span></code> che forza il comando a cancellare senza fare
+questioni. Se siete alla frutta e volete eliminare un sottoalbero intero,
+usate quindi <code class="samp docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code> seguito dal nome del sotto albero. Ma attenti, in
+Unix non c'è modo di tornare sui vostri passi.</p>
+<p>Ultimo, ma certo non meno importante, è il comando <strong class="command">ls</strong> per
+elencare il contenuto di una directory (di quella corrente se lanciato senza
+argomenti, oppure di tutte le directory elencate come argomenti). Esso ha
+molte opzioni (al solito il manuale è illuminante). Vi ricordo almeno
+l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-l</span></code> che aumenta il numero di informazioni riportate per
+ogni file.</p>
+</div>
+<div class="section" id="l-espansione-dei-caratteri-speciali">
+<h3>L'espansione dei caratteri speciali<a class="headerlink" href="#l-espansione-dei-caratteri-speciali" title="Link a questa intestazione">¶</a></h3>
+<p>È possibile specificare (comodamente) più di un file per volta come argomento
+di un comando? La shell mette a disposizione un comodo stratagemma per farlo:
+l'uso dei caratteri speciali <code class="samp docutils literal notranslate"><span class="pre">?</span></code> e <code class="samp docutils literal notranslate"><span class="pre">*</span></code>. Se tali caratteri vengono
+utilizzati per identificare una directory o file la shell, prima di eseguire
+il comando, sostituisce i percorsi che contengono tali caratteri con i
+percorsi di tutti i file che soddisfano alcune regole. Nel caso del carattere
+<code class="samp docutils literal notranslate"><span class="pre">?</span></code>, la regola è che al posto di quel carattere ci sia (esattamente) un
+carattere qualunque, mentre nel caso di <code class="samp docutils literal notranslate"><span class="pre">*</span></code> è che al posto di quel
+carattere ci sia un numero non nullo di caratteri qualunque (in entrambi i
+casi, il carattere <code class="samp docutils literal notranslate"><span class="pre">/</span></code> mantiene il suo significato di separare, lungo il
+percorso, le directory e non viene quindi mai considerato tra i possibili
+caratteri qualunque).</p>
+<p>Attenzione, questo processo di sostituzione è effettuato dalla shell e
+pertanto il comando che verrà eseguito non ha alcuna conoscenza del fatto che
+gli argomenti che gli sono stati passati derivano da tale sostituzione. Per
+renderci conto di questo fatto useremo il comando <strong class="command">echo</strong>, che ha come
+effetto quello di copiare nel suo output l'elenco (immutato) dei suoi
+argomenti. Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> ciao come stai
+<span class="go">ciao come stai</span>
+</pre></div>
+</div>
+<p>ora, se la directory corrente fosse <code class="file docutils literal notranslate"><span class="pre">/home</span></code>, il comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> *
+<span class="go">ilenia santini</span>
+</pre></div>
+</div>
+<p>ha l'output prodotto nell'esempio in quanto, prima di essere eseguito, la
+shell avrà sostituito <code class="samp docutils literal notranslate"><span class="pre">*</span></code> (una specificazione di percorso relativo) con
+tutti i possibili percorsi relativi (che hanno <code class="file docutils literal notranslate"><span class="pre">/home</span></code> come directory
+corrente). Similmente, il comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> /var/*
+<span class="go">/var/log /var/spool</span>
+</pre></div>
+</div>
+<p>ha come output l'elenco dei possibili percorsi (assoluti) che iniziano con
+<code class="file docutils literal notranslate"><span class="pre">/var/</span></code> e sono seguiti da una successione arbitraria di caratteri.</p>
+<p>In relazione a quanto detto nella sottosezione precedente, quindi, per copiare
+(o spostare) un insieme di file sotto una directory, possiamo usare lo
+stratagemma appena descritto. Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cp /var/spool/*.mbox /home/santini
+</pre></div>
+</div>
+<p>copia i file <code class="file docutils literal notranslate"><span class="pre">santini.mbox</span></code>, <code class="file docutils literal notranslate"><span class="pre">ilenia.mbox</span></code> e <code class="file docutils literal notranslate"><span class="pre">root.mbox</span></code>
+dalla directory <code class="file docutils literal notranslate"><span class="pre">/var/spool</span></code> alla directory <code class="file docutils literal notranslate"><span class="pre">/home/santini</span></code></p>
+</div>
+<div class="section" id="programmare-semplici-script">
+<h3>Programmare semplici script<a class="headerlink" href="#programmare-semplici-script" title="Link a questa intestazione">¶</a></h3>
+<p>Un aspetto fondamentale dell'utilizzo del calcolatore è che ci può essere
+d'aiuto evitando farci eseguire compiti ripetitivi. Anche la shell ha un
+meccanismo che ci permette di raccogliere in semplici <em>script</em> (piccoli
+programmi) sequenze di comandi che ci ritroviamo spesso ad eseguire.</p>
+<p>Uno script di shell è semplicemente un file &quot;eseguibile&quot; (ovvero che ha i
+permessi di esecuzione per l'utente che intende utilizzarlo) con una speciale
+intestazione. Senza entrare nel merito dei permessi del filesystem, che
+costituirebbero argomento a sé stante, diciamo molto brevemente che qualunque
+file sulla cui prima riga compaia:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>!/bin/bash
+</pre></div>
+</div>
+<p>dove <code class="file docutils literal notranslate"><span class="pre">/bin/bash</span></code> si assume essere il percorso della bash, e per cui
+sia stato eseguito il comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> chmod u+x file
+</pre></div>
+</div>
+<p>dove <code class="file docutils literal notranslate"><span class="pre">file</span></code> è il nome del file in questione, è uno script di shell.
+Questo significa che si può utilizzare <code class="samp docutils literal notranslate"><span class="pre">file</span></code> come un comando del
+sistema e che questo comporterà che tutte le linee del file che seguono quella
+di intestazione saranno eseguite in sequenza dalla shell.</p>
+<p>La shell mette a disposizione alcuni costrutti tipici dei linguaggi di
+programmazione che possono essere utilizzati negli script e dalla linea di
+comando (sebbene, in questo caso, sia più difficile utilizzarli perché
+talvolta sono lunghi e complessi da editare). Per prima cosa osserviamo che è
+possibile utilizzare delle variabili, esse non debbono essere dichiarate in
+precedenza, hanno nomi alfanumerici e vengono assegnate come <code class="samp docutils literal notranslate"><span class="pre">var=value</span></code>
+dove <code class="samp docutils literal notranslate"><span class="pre">var</span></code> è il nome della variabile e <code class="samp docutils literal notranslate"><span class="pre">value</span></code> è il suo valore.
+Per riferirsi ad una variabile, viceversa, bisogna anteporre al suo nome il
+simbolo del dollaro, ossia, secondo l'assegnamento precedente, <code class="samp docutils literal notranslate"><span class="pre">$var</span></code>
+viene sostituita dalla shell con <code class="samp docutils literal notranslate"><span class="pre">value</span></code>.</p>
+<p>In uno script, le variabili <code class="samp docutils literal notranslate"><span class="pre">0</span></code>, <code class="samp docutils literal notranslate"><span class="pre">1</span></code>, <code class="samp docutils literal notranslate"><span class="pre">2</span></code>... corrispondono
+al nome dello script ed ai suoi argomenti. Così, ad esempio, se lo script
+<code class="samp docutils literal notranslate"><span class="pre">echonum2</span></code> contiene:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>!/bin/sh
+<span class="go">echo uno $1</span>
+<span class="go">echo due $2</span>
+</pre></div>
+</div>
+<p>e la directory corrente fosse <code class="file docutils literal notranslate"><span class="pre">/var/spool/mail</span></code>, allora si avrebbe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> econnum2 *
+<span class="go">uno santini.mbox</span>
+<span class="go">due ilenia.mbox</span>
+</pre></div>
+</div>
+<p>dove osservate che sebbene lo script sia elementare (non contenga alcuna
+gestione del carattere <code class="samp docutils literal notranslate"><span class="pre">*</span></code>) esso elenca con successo i primi due file
+contenuti nella sua directory corrente.</p>
+<p>Il costrutto maggiormente utilizzato nella shell è quello di <code class="samp docutils literal notranslate"><span class="pre">for</span></code> che
+permette di eseguire ripetutamente una porzione di codice in cui una variabile
+assume di volta in volta valori distinti.</p>
+<p>La sintassi (che potete trovare nel manuale) è:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">for name [ in word ] ; do list ; done</span>
+</pre></div>
+</div>
+<p>che fa sì che la lista di comandi <code class="samp docutils literal notranslate"><span class="pre">list</span></code> venga eseguita varie volte con
+la variabile <code class="samp docutils literal notranslate"><span class="pre">name</span></code> che assume i valori determinati dall'espansione di
+<code class="samp docutils literal notranslate"><span class="pre">word</span></code>.</p>
+<p>Facciamo un esempio, supponiamo che la directory corrente della shell sia
+<code class="file docutils literal notranslate"><span class="pre">/var/spool/mail</span></code>, allora:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="k">for</span> file in *<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> ciao file <span class="nv">$file</span><span class="p">;</span> <span class="k">done</span>
+<span class="go">ciao file santini.mbox</span>
+<span class="go">ciao file ilenia.mbox</span>
+<span class="go">ciao file root.mbox</span>
+</pre></div>
+</div>
+<p>dove notate che è presente una linea per ogni file, visto che il comando
+<strong class="command">echo</strong> viene eseguito ripetutamente.</p>
+<p>La bash mette a disposizione una ulteriore sintassi per il <code class="samp docutils literal notranslate"><span class="pre">for</span></code> simile
+a quella C:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">for (( expr1 ; expr2 ; expr3 )) ; do list; done</span>
+</pre></div>
+</div>
+<p>in questo modo, possono essere eseguiti semplicemente cicli in cui la
+variabile assume valori numerici. Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="k">for</span> <span class="o">((</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">5</span><span class="p">;</span> i++ <span class="o">))</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Se la versione della bash che usate non consentisse questa sintassi, potete
+usare il comando <strong class="command">seq</strong> e la sintassi <code class="samp docutils literal notranslate"><span class="pre">$()</span></code> come discusso in
+seguito in un esempio.</p>
+<p>Entrambe le forme del comando sono molto utili quando si voglia copiare una
+medesima operazione su più file. Dopo la sezione sulla redirezione vedremo,
+come esempio, un modo semplice di mutare l'estensione ad un gruppo di file.</p>
+<p>Un ulteriore costrutto, molto utile nel caso degli script (ma forse meno
+usuale sulla linea di comando) è quello dell'<code class="samp docutils literal notranslate"><span class="pre">if</span></code>. La sua sintassi è:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">if list; then list; [ elif list; then list; ] ... [ else list; ] fi</span>
+</pre></div>
+</div>
+<p>dove, a seconda dell'<em>exit status</em> della prima lista di comandi (presto
+impareremo cosa sia) vengono eseguite o la lista di comandi del ramo
+<code class="samp docutils literal notranslate"><span class="pre">then</span></code>, o quella del ramo <code class="samp docutils literal notranslate"><span class="pre">else</span></code>. Spesso la prima lista di comandi
+è in realtà un'<em>espressione condizionale</em> costruita facendo uso dell'operatore
+<code class="samp docutils literal notranslate"><span class="pre">[]</span></code> della bash. Per ulteriori dettagli controllate nel manuale della
+bash alla voce <code class="samp docutils literal notranslate"><span class="pre">CONDITIONAL</span> <span class="pre">EXPRESSIONS</span></code> (per cercare una cosa in una
+pagina di manuale visualizzata con <code class="samp docutils literal notranslate"><span class="pre">less</span></code> premete dapprima la barra
+<code class="samp docutils literal notranslate"><span class="pre">/</span></code> e poi inserite la stringa da cercare seguita da invio; per trovare
+la successiva occorrenza, inserite la barra seguita subito da invio). Le
+espressioni condizionali si possono combinare logicamente per mezzo degli
+operatori not <code class="samp docutils literal notranslate"><span class="pre">!</span></code>, and <code class="samp docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> e or <code class="samp docutils literal notranslate"><span class="pre">||</span></code>.</p>
+<p>Ad esempio, la seguente espressione darà <code class="samp docutils literal notranslate"><span class="pre">si</span></code> in output se il primo
+argomento dello script è uguale alla variabile <code class="samp docutils literal notranslate"><span class="pre">pippo</span></code> e se esiste un
+file così identificato:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">if [ &quot;$1&quot; = &quot;$pippo&quot; ] &amp;&amp; [ -e &quot;$pippo&quot; ]; then</span>
+<span class="go">    echo si</span>
+<span class="go">else</span>
+<span class="go">    echo no</span>
+<span class="go">fi</span>
+</pre></div>
+</div>
+<p>Osservate che il punto e virgola è un separatore e può sempre essere
+sostituito con un a capo.</p>
+</div>
+</div>
+<div class="section" id="redirezione-e-input-output-standard">
+<h2>Redirezione e input/output standard<a class="headerlink" href="#redirezione-e-input-output-standard" title="Link a questa intestazione">¶</a></h2>
+<p>Ad ogni processo di Unix sono associati implicitamente tre file, cosiddetti
+<em class="dfn">standard input</em>, <em class="dfn">output</em> ed <em class="dfn">error</em>. Dal primo di essi, il
+processo ricava il suo ingresso, o input, e sul secondo produce tutte le sue
+uscite, o output. Il terzo file serve al programma per segnalare degli
+speciali output che indicano una condizione di errore, o comunque
+straordinaria.</p>
+<p>Questo vuol dire che se un programma tenta di leggere o scrivere senza
+specificare esplicitamente dei file per tali operazioni (ad esempio, in C,
+usando le funzioni di libreria <code class="docutils literal notranslate"><span class="pre">puts</span></code>, <code class="docutils literal notranslate"><span class="pre">printf</span></code>, <code class="docutils literal notranslate"><span class="pre">getchar</span></code> o <code class="docutils literal notranslate"><span class="pre">scanf</span></code>),
+esso leggerà dallo standard input e scriverà sullo standard output.</p>
+<p>Normalmente, quando eseguite un comando tramite la shell il comando riceverà
+il suo standard input &quot;dalla tastiera&quot; e invierà il suo standard
+output (ed error) &quot;sul terminale&quot; (le virgolette stanno ad indicare
+che ci sono di mezzo cose più sofisticate del semplice e diretto hardware, ma
+per la discussione attuale, questo grado di precisione è sufficiente). Così,
+se eseguite ad esempio il comando <strong class="command">cat</strong> che ha l'effetto di
+concatenare sul suo standard output i file che sono stati specificati come
+argomento, avrete che, ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat /var/spool/mail/santini.mbox
+<span class="go">From: ilenia@localhost</span>
+<span class="go">To: santini@localhost</span>
+<span class="go">Subject: Buon lavoro alle IOI!</span>
+<span class="go">Date:...</span>
+</pre></div>
+</div>
+<p>ovvero, comparirà &quot;sul terminale&quot; il contenuto (qui troncato) della mia
+casella di posta. Se ora eseguite il comando senza argomenti, esso leggerà,
+invece di <code class="file docutils literal notranslate"><span class="pre">/var/spool/mail/santini.mbox</span></code>, lo standard input:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat
+<span class="go">ciao come stai</span>
+<span class="go">ciao come stai</span>
+<span class="go">^D</span>
+</pre></div>
+</div>
+<p>dove la prima linea è stata scritta dall'utente e la seconda è prodotta per
+effetto del comando <strong class="command">cat</strong> che invia sul suo standard output quanto a
+letto e della shell che lo visualizza (&quot;sul terminale&quot;). Il carattere che
+compare scritto come <kbd class="kbd docutils literal notranslate">^D</kbd> corrisponde alla pressione simultanea dei tasti
+<kbd class="kbd docutils literal notranslate">ctrl</kbd> e <kbd class="kbd docutils literal notranslate">d</kbd>, che ha come effetto quelo di segnalare la fine del
+file (ossia, di emettere un segnale di <code class="docutils literal notranslate"><span class="pre">EOF</span></code> allo standard input).</p>
+<div class="section" id="redirezione-da-a-file">
+<h3>Redirezione da/a file<a class="headerlink" href="#redirezione-da-a-file" title="Link a questa intestazione">¶</a></h3>
+<p>La shell rende possibile <em class="dfn">redirigere</em> questi file standard da e verso
+altri file del sistema, utilizzando i caratteri speciali <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> e <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>. Più
+precisamente, se invocando un comando aggiungiamo sulla linea di comando <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>
+seguito dall'identificazione di un file, allora il comando leggerà il file
+specificato come il suo standard input; viceversa, se aggiungiamo <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> seguito
+dall'identificazione di un file, allora il comando scriverà sul file
+specificato il suo standard output.</p>
+<p>Ad esempio, dopo l'esecuzione del comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &gt;test
+<span class="go">ciao come stai</span>
+<span class="go">^D</span>
+</pre></div>
+</div>
+<p>il file <code class="file docutils literal notranslate"><span class="pre">test</span></code> (che viene creato se non esisteva prima di aver dato il
+precedente comando), conterrà esattamente le parole <code class="docutils literal notranslate"><span class="pre">ciao</span> <span class="pre">come</span> <span class="pre">stai</span></code> che,
+nell'esempio precedente, erano state emesse &quot;sul terminale&quot;. Parimenti, il
+comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;<span class="nb">test</span>
+<span class="go">ciao come stai</span>
+</pre></div>
+</div>
+<p>emetterà &quot;sul terminale&quot; l'input che ricaverà dal file <code class="file docutils literal notranslate"><span class="pre">test</span></code> invece che
+&quot;dalla tastiera&quot;.</p>
+<p>È possibile redirigere anche lo standard error, mediante i caratteri speciali
+<code class="docutils literal notranslate"><span class="pre">2&gt;</span></code>, questo può essere comodo per distinguere facilmente, durante
+l'esecuzione di un programma, l'output &quot;normale&quot; dagli errori che altrimenti
+la shell invierebbe indistintamente &quot;sul terminale&quot;. Ad esempio, se il comando
+<strong class="command">pasticcio</strong> (che ovviamente non troverete nel manuale) emettesse
+alcune righe di output e di errore mescolate come segue:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pasticcio
+<span class="go">questo è un errore</span>
+<span class="go">questo invece va bene</span>
+<span class="go">di nuovo un errore</span>
+<span class="go">un altro errore</span>
+<span class="go">ma chiudiamo in bellezza</span>
+</pre></div>
+</div>
+<p>dove è chiaro cosa funzioni o meno, potremmo rendere meno ambiguo il suo
+output eseguendolo come segue:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pasticcio &gt;output <span class="m">2</span>&gt;errori
+</pre></div>
+</div>
+<p>dopo di che potremmo trovare nel file <code class="file docutils literal notranslate"><span class="pre">output</span></code> le righe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">questo invece va bene</span>
+<span class="go">ma chiudiamo in bellezza</span>
+</pre></div>
+</div>
+<p>e nel file <code class="file docutils literal notranslate"><span class="pre">errori</span></code>, le righe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">questo è un errore</span>
+<span class="go">di nuovo un errore</span>
+<span class="go">un altro errore</span>
+</pre></div>
+</div>
+<p>il che può risultare molto comodo per ispezionare e osservare con calma gli
+errori prodotti da un programma (come, ad esempio, un compilatore!).</p>
+</div>
+<div class="section" id="pipe-tra-comandi">
+<h3>Pipe tra comandi<a class="headerlink" href="#pipe-tra-comandi" title="Link a questa intestazione">¶</a></h3>
+<p>Per fare qualche altro esempio, introduciamo il comando <strong class="command">wc</strong> che
+conta il numero di linee, parole e bytes presenti nel suo input. Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> wc &lt;<span class="nb">test</span>
+<span class="go">      1       3      15 test</span>
+</pre></div>
+</div>
+<p>che indica che ci sono una linea, tre parole e quindici byte in <code class="file docutils literal notranslate"><span class="pre">test</span></code>.</p>
+<p>Un ulteriore meccanismo di redirezione della shell consente di &quot;concatenare&quot;
+l'esecuzione di più comandi facendo in modo che lo standard output di un
+comando sia collegato allo standard input del successivo. Il carattere tramite
+il quale si specifica questa intenzione è <code class="docutils literal notranslate"><span class="pre">|</span></code> che deve essere interposto tra
+i comandi che si intendono concatenare.</p>
+<p>Per continuare con l'esempio precedente, consideriamo:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;<span class="nb">test</span> <span class="p">|</span> wc
+<span class="go">      1       3      15 test</span>
+</pre></div>
+</div>
+<p>che possiamo interpretare come segue: il comando <strong class="command">cat</strong> legge dal file
+<code class="file docutils literal notranslate"><span class="pre">test</span></code> il suo standard input, emette quindi il contenuto di tale file
+sul suo standard output che viene utilizzato come standard input dal comando
+<strong class="command">wc</strong> che quindi effettua il suo conteggio.</p>
+<p>Ovviamente, tutto si può combinare, così ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;<span class="nb">test</span> <span class="p">|</span> wc &gt;out
+</pre></div>
+</div>
+<p>farà sì che i conteggi vengano memorizzati nel file <code class="file docutils literal notranslate"><span class="pre">out</span></code>.</p>
+</div>
+<div class="section" id="ancora-redirezione">
+<h3>Ancora redirezione<a class="headerlink" href="#ancora-redirezione" title="Link a questa intestazione">¶</a></h3>
+<p>Una cosa che talvolta è molto utile è usare come argomento di un comando
+l'output di un altro comando. Supponiamo, ad esempio, di voler produrre un
+output simile a quello di <strong class="command">wc</strong>, ma più grazioso. Innanzitutto
+limitiamoci al conteggio delle parole, che otterremo con l'opzione
+<code class="xref std std-option docutils literal notranslate"><span class="pre">-w</span></code>. Quello che vorremo è aggiungere una dicitura in italiano.
+Consideriamo il seguente script:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>!/bin/bash
+<span class="go">echo il file $1 contiene</span>
+<span class="go">wc -w &lt;$1</span>
+<span class="go">echo parole</span>
+</pre></div>
+</div>
+<p>se lo eseguissimo, avremmo l'output diviso su tre righe (una per comando) che
+può essere antiestetico (in questo caso, ma può essere diverso da quello di
+cui abbiamo bisogno in generale).</p>
+<p>Se racchiudiamo uno (o più comandi di una pipe) in <code class="docutils literal notranslate"><span class="pre">$()</span></code> ed usiamo tale
+espressione come argomento, allora la shell prima di eseguire il comando di
+cui tale espressione è argomento eseguirà i comandi tra parentesi e sostituirà
+l'espressione con l'output dei comandi eseguiti. Ecco la soluzione per il
+nostro script:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>!/bin/bash
+<span class="go">echo il file $1 contiene $(wc -w &lt;$1) parole</span>
+</pre></div>
+</div>
+<p>Per concludere, torniamo alla promessa che avevamo fatto qualche tempo fa.
+Supponiamo di voler mutare l'estensione di un insieme di file da <code class="docutils literal notranslate"><span class="pre">.c.txt</span></code>
+semplicemente a <code class="docutils literal notranslate"><span class="pre">.c</span></code>. Il comando che possiamo usare è:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">for i in *.c.txt; do echo mv $i $(basename $i .c.txt).c; done | bash</span>
+</pre></div>
+</div>
+<p>dove, il ciclo di <code class="docutils literal notranslate"><span class="pre">for</span></code> eseguirà <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">mv</span> <span class="pre">$i</span> <span class="pre">$(basename</span> <span class="pre">$i</span> <span class="pre">.c.txt).c</span></code> una
+volta per ogni file con estensione in <code class="docutils literal notranslate"><span class="pre">.c.txt</span></code>. Il comando
+<strong class="command">basename</strong> seguito da un file e da una estensione produce in output
+il nome del file senza estensione. Quindi, prima della pipe, il ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code>
+avrà prodotto in output una sequenza di comandi del tipo <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">X.c.txt</span> <span class="pre">X.c</span></code> con
+al posto di <code class="docutils literal notranslate"><span class="pre">X</span></code> tutti i file di cui voglio cambiare l'estensione. Ora: se il
+comando fa quello che deve (posso osservare l'output di tutti gli
+<strong class="command">echo</strong> quante volte voglio e correggere per bene la sintassi del
+comando), posso usare una pipe per dare il tutto in pasto a un nuovo
+interprete di comandi che eseguirà per me l'elenco di <strong class="command">mv</strong>.</p>
+<p>Questo è un modo abbastanza generale (e sicuro) di procedere. Se dovete dare
+una sequenza di comandi simili costruite un ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> che faccia
+l'<strong class="command">echo</strong> di un comando costruito a partire dalla variabile del ciclo.
+Solo quando sarete sicuri di non aver sbagliato, fate il pipe in una shell.</p>
+<p>Per finire, un caso molto comune di uso della forma di redirezione appena
+discussa è per la costruzione di cicli. Se la sintassi &quot;alla C&quot; del <code class="docutils literal notranslate"><span class="pre">for</span></code>
+fosse non disponibile (può succedere alle IOI), potete cavarvela con il
+comando <strong class="command">seq</strong> che genera sul suo standard output una sequenza di
+numeri. Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="k">for</span> i in <span class="k">$(</span>seq <span class="m">0</span> <span class="m">5</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Ora, sempre più difficile! La <strong class="command">bash</strong> mette a disposizione un modo per
+creare una sorta di &quot;file temporaneo&quot; consentendoci di &quot;trattare come un file&quot;
+lo standard output di un comando (o di una sequenza di comandi collegati da
+pipe). Per fare questo è sufficiente racchiudere il filtro tra i caratteri
+<code class="docutils literal notranslate"><span class="pre">&lt;(</span></code> e <code class="docutils literal notranslate"><span class="pre">)</span></code>. Questo è molto utile nei casi in cui vogliamo passare l'output
+di un filtro ad un comando che però non opera leggendo lo standard input, ma
+opera su file (dato il loro nome, o percorso); questo è molto comune per quei
+comandi che, ad esempio, operano su più di un file per volta: in tal caso
+(essendo unico lo standard input) non avrebbe senso usare la redirezione. Ad
+esempio, possiamo concatenare due o più file con il comando <strong class="command">cat</strong>
+semplicemente indicando il loro nome come argomento del comando; se il file
+<code class="file docutils literal notranslate"><span class="pre">a.txt</span></code> contiene una lettera &quot;a&quot; e così il file <code class="file docutils literal notranslate"><span class="pre">b.txt</span></code> contiene
+una &quot;b&quot;, avremo:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat a.txt b.txt
+<span class="go">a</span>
+<span class="go">b</span>
+</pre></div>
+</div>
+<p>Supponiamo ora di voler concatenare due liste di numeri ottenute con
+<strong class="command">seq</strong>; una soluzione potrebbe essere:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> seq <span class="m">1</span> <span class="m">3</span> &gt; primitre
+<span class="gp">$</span> seq <span class="m">4</span> <span class="m">6</span> &gt; altritre
+<span class="gp">$</span> cat primitre altrire
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+<span class="go">5</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<p>Una soluzione alternativa, che non richieda la creazione dei due file
+<code class="file docutils literal notranslate"><span class="pre">primitre</span></code> e <code class="file docutils literal notranslate"><span class="pre">altritre</span></code> è possibile tramite l'uso di <code class="docutils literal notranslate"><span class="pre">&lt;()</span></code> in
+luogo dei file:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;<span class="o">(</span>seq <span class="m">1</span> <span class="m">3</span><span class="o">)</span> &lt;<span class="o">(</span>seq <span class="m">4</span> <span class="m">6</span><span class="o">)</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+<span class="go">5</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="filtri">
+<h2>Filtri<a class="headerlink" href="#filtri" title="Link a questa intestazione">¶</a></h2>
+<p>Il concetto di filtro è assolutamente centrale nell'architettura di un
+sistema Unix. L'idea base è estremamente semplice: avere una tecnica
+efficiente, uniforme e semplice che consenta la comunicazione tra processi (la
+redirezione e le pipe) e sviluppare piccoli programmi con compiti ben
+specifici e circoscritti.</p>
+<p>Osserviamo, per inciso, che questo è l'esatto opposto dei correnti sistemi
+operativi della famiglia Windows dove in genere si hanno programmi molto
+sofisticati che svolgono numerose funzioni, ma che molto difficilmente possono
+interoperare tra loro.</p>
+<p>Facciamo un esempio per essere più chiari. Immaginiamo di volere un elenco dei
+dieci processi in esecuzione da più lungo tempo nel sistema, assieme al nome
+dell'utente che li sta eseguendo ed il relativo tempo di esecuzione.
+Apparentemente è un compito complesso: con Windows dovrei cercare un programma
+che faccia proprio quello che voglio, oppure verificare se qualche programma
+di gestione dei processi ha qualche opzione che mi consenta di ottenere il
+risultato desiderato, oppure, in fine, decidermi a scrivere io stesso il
+programma studiando le API del sistema operativo che consentono di accedere
+alle informazioni sui processi in esecuzione. Non sembra essere una cosa in
+nessun caso banale.</p>
+<p>Con Unix la cosa è relativamente più semplice. Come prima cosa, quello che
+cerco riguarda i processi, quindi vediamo se il comando <strong class="command">ps</strong> offre le
+informazioni che cerco. Dopo un po' di studio del manuale, decido che posso
+usarlo con alcune opzioni per ottenere qualcosa del tipo:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ps whauxS
+<span class="go">...</span>
+<span class="go">root       602  9.0 12.8 19500 8060 ?        R    07:50  53:50 /etc/X11/X -auth /var/gdm/:0.Xauth :0</span>
+<span class="go">root       603  0.0  0.0  3800    0 ?        SW   07:50   0:00 [gdm]</span>
+<span class="go">santini    609  0.0  0.0  1944    0 ?        SW   07:53   0:00 [Default]</span>
+<span class="go">santini    656  0.0  0.0  1892    0 ?        SW   07:53   0:00 [.xsession]</span>
+<span class="go">santini    664  0.0  0.7  7180  492 ?        S    07:53   0:01 gnome-session</span>
+<span class="go">santini    665  0.0  0.1  2316  124 ?        S    07:53   0:00 ssh-agent /home/santini/.xsession-ssh</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>dove si vede sia il nome dell'utente (la prima colonna), che il nome del
+processo (l'ultima colonna) ed il tempo da cui è in esecuzione (la penultima
+colonna) e dove i puntini <code class="docutils literal notranslate"><span class="pre">...</span></code> indicano che ho ritagliato un esempio di
+alcune righe tra le decine riportate da <strong class="command">ps</strong>. Ora voglio isolare le
+sole informazioni che mi interessano, siccome la spaziatura su ogni riga è
+costante (è come se fosse un file con record e campi di lunghezza fissa),
+posso usare il comando <strong class="command">cut</strong> per prelevare le colonne che mi
+interessano, che sono i caratteri (<code class="xref std std-option docutils literal notranslate"><span class="pre">-b</span></code>, per bytes) da 0 a 9 e quelli
+dopo il 56esimo. Vediamo come fare la cosa con una pipe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ps whauxS <span class="p">|</span> cut -b <span class="m">0</span>-9, <span class="m">56</span>-
+<span class="go">...</span>
+<span class="go">root       53:50 /etc/X11/X -auth /var/gdm/:0.Xauth :0</span>
+<span class="go">root        0:00 [gdm]</span>
+<span class="go">santini     0:00 [Default]</span>
+<span class="go">santini     0:00 [.xsession]</span>
+<span class="go">santini     0:01 gnome-session</span>
+<span class="go">santini     0:00 ssh-agent /home/santini/.xsession-ssh</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>wow, ci siamo quasi. Ora, come dicevo, vorrei i venti che girano da più tempo:
+per prima cosa, quindi, ordino i processi in ordine inverso di tempo di
+esecuzione, mi può aiutare il comando <strong class="command">sort</strong> al quale chiedo di
+ordinare numericamente (<code class="xref std std-option docutils literal notranslate"><span class="pre">-n</span></code>), in ordine inverso (<code class="xref std std-option docutils literal notranslate"><span class="pre">-r</span></code>) ed in
+base alla seconda colonna (<code class="xref std std-option docutils literal notranslate"><span class="pre">-k</span> <span class="pre">2</span></code>):</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ps whauxS <span class="p">|</span>  cut -b <span class="m">0</span>-9,56- <span class="p">|</span>  sort -rnk2
+<span class="go">...</span>
+<span class="go">root       53:50 /etc/X11/X -auth /var/gdm/:0.Xauth :0</span>
+<span class="go">santini     0:01 gnome-session</span>
+<span class="go">santini     0:00 [.xsession]</span>
+<span class="go">santini     0:00 ssh-agent /home/santini/.xsession-ssh</span>
+<span class="go">santini     0:00 [Default]</span>
+<span class="go">root        0:00 [gdm]</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>come vedete, il processo <code class="docutils literal notranslate"><span class="pre">gnome-session</span></code> è risalito, visto che era in
+esecuzione da almeno un secondo. Ora, non voglio tutte le linee, ma solo la
+prima decina, per questo c'è il comando <strong class="command">head</strong> che mi permette di
+prendere solo un certo numero di righe a partire dalla prima. Soluzione al mio
+problema, quindi:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ps whauxS <span class="p">|</span>  cut -b <span class="m">0</span>-9,56- <span class="p">|</span>  sort -rnk2 <span class="p">|</span> head -10
+<span class="go">root      104:48 init [5]</span>
+<span class="go">santini    55:44 deskguide_applet --activate-goad-server deskguide_applet --goad-fd 10</span>
+<span class="go">root       54:59 /etc/X11/X -auth /var/gdm/:0.Xauth :0</span>
+<span class="go">santini    10:52 xscreensaver -no-splash -timeout 20 -nice 10</span>
+<span class="go">xfs         0:22 xfs -droppriv -daemon</span>
+<span class="go">santini     0:51 xemacs</span>
+<span class="go">santini     0:26 /usr/bin/sawfish --sm-client-id=default2</span>
+<span class="go">santini     0:20 bash</span>
+<span class="go">santini     0:17 tasklist_applet --activate-goad-server tasklist_applet --goad-fd 10</span>
+<span class="go">santini     0:09 panel --sm-client-id default7</span>
+</pre></div>
+</div>
+<p>Ho ottenuto il risultato cercato senza scrivere una linea di codice e senza
+cercare un programma che facesse proprio esattamente quello che volevo io.
+Certo, è necessario conoscere i comandi Unix <strong class="command">ps</strong>, <strong class="command">cut</strong>,
+<strong class="command">sort</strong> e <strong class="command">head</strong>, direte voi, che può non essere semplice.
+Questo è vero, ma si tratta di programmi del tutto generali, che qualunque
+utente Unix conosce bene e che ha usato in mille contesti per realizzare mille
+filtri come quello qua sopra. Non si tratta di apprendere ogni volta un
+comando diverso, una sintassi diversa, dei menù diversi. Si tratta
+semplicemente di dotarsi di un arsenale con poche armi, molto semplici e molto
+generali che è molto semplice mettere assieme.</p>
+<p>Ora vedremo alcuni di questi strumenti utilizzati nella costruzione di
+semplici filtri che vi possono essere utili durante la partecipazione alle
+IOI. L'esposizione è volutamente stringata e priva di dettagli, usatela come
+puntatore verso la documentazione on-line e come ispirazione per la
+sperimentazione. Molti dei comandi discussi di seguito appartengono al
+pacchetto denominato <strong class="command">textutils</strong> su cui potete avere maggiori
+informazioni tramite il comando <strong class="command">info textutils</strong>.</p>
+<div class="section" id="selezionare-righe-e-colonne">
+<h3>Selezionare righe e colonne<a class="headerlink" href="#selezionare-righe-e-colonne" title="Link a questa intestazione">¶</a></h3>
+<p><strong class="command">head</strong> e <strong class="command">tail</strong>, come abbiamo visto, si può ottenere solo un
+certo numero di righe dall'inizio del file. Il comando <strong class="command">tail</strong> permette di
+selezionare un certo numero di righe a partire dalla fine del file; tramite
+l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">+n</span></code> (dove <code class="docutils literal notranslate"><span class="pre">n</span></code> è un numero) si possono ottenere tutte le
+righe a partire dall'<code class="docutils literal notranslate"><span class="pre">n</span></code>-esima (ossia, scartando le prime <code class="docutils literal notranslate"><span class="pre">n</span></code>-1). Così, ad
+esempio, se <code class="file docutils literal notranslate"><span class="pre">test</span></code> contiene i numeri da uno a dieci uno per riga si ha:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> head -2 &lt;<span class="nb">test</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="gp">$</span> tail -3 &lt;<span class="nb">test</span>
+<span class="go">8</span>
+<span class="go">9</span>
+<span class="go">10</span>
+<span class="gp">$</span> tail +7 &lt;<span class="nb">test</span>
+<span class="go">7</span>
+<span class="go">8</span>
+<span class="go">9</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+<p>purtroppo non esiste per <strong class="command">head</strong> l'analogo dell'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">+n</span></code>,
+così se volete avere tutte le righe scartando le ultime <code class="docutils literal notranslate"><span class="pre">n</span></code>-1 dovete usare
+uno stratagemma basato sul comando <strong class="command">tac</strong> (si chiama al contrario del
+comando <strong class="command">cat</strong>) che concatena il suo input e lo emette in output con
+le righe &quot;al contrario&quot; (ossia dall'ultima alla prima). Per avere tutte le
+righe di un file tranne le ultime <code class="docutils literal notranslate"><span class="pre">n</span></code> usate quindi <code class="docutils literal notranslate"><span class="pre">tac</span> <span class="pre">out</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">+n</span> <span class="pre">|</span>
+<span class="pre">tac</span></code>; sempre nell'esempio precedente:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> tac &lt;out <span class="p">|</span> tail +8 <span class="p">|</span> tac
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Un fratello di <strong class="command">tac</strong> è il comando <strong class="command">rev</strong> che inverte l'ordine
+in cui compaiono i caratteri di ciascuna riga; assieme a <strong class="command">cut</strong> (che
+abbiamo già visto e su cui presto torneremo) questo comando è molto comodo
+(utilizzato due volte, similmente a come abbiamo fatto sopra per
+<strong class="command">tac</strong>) per selezionare i campi di una riga a partire dagli ultimi,
+invece che dai primi.</p>
+<p><strong class="command">grep</strong>, un approccio completamente diverso alla selezione di righe da
+un file è reso possibile dal comando <strong class="command">grep</strong>. Esso permette di
+selezionare le righe non in base alla loro posizione, ma al loro contenuto.
+Esso può essere specificato tramite una <em>espressione regolare</em>; il caso più
+elementare di una espressione regolare è del semplice testo: in questo caso,
+verranno emesse tutte e sole le linee che contengono quel testo. Ad esempio,
+se il file <code class="file docutils literal notranslate"><span class="pre">mesi</span></code> contiene l'elenco dei nomi dei mesi, avremo:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> grep r &lt;mesi
+<span class="go">febbraio</span>
+<span class="go">marzo</span>
+<span class="go">aprile</span>
+<span class="go">settembre</span>
+<span class="go">ottobre</span>
+<span class="go">novembre</span>
+<span class="go">dicembre</span>
+</pre></div>
+</div>
+<p>che, come dice il proverbio, sono i mesi preferibili in cui mangiare le rane,
+per via della <code class="docutils literal notranslate"><span class="pre">r</span></code>. Espressioni regolari più generali consentono di
+selezionare le linee usando dei &quot;caratteri speciali&quot; similmente a come la
+shell espande i percorsi dei file che contengono <code class="docutils literal notranslate"><span class="pre">*</span></code> e <code class="docutils literal notranslate"><span class="pre">?</span></code>. Per avere
+maggiori informazioni sulle espressioni regolari leggete la sezione <code class="docutils literal notranslate"><span class="pre">REGULAR</span>
+<span class="pre">EXPRESSIONS</span></code> del comando <strong class="command">grep</strong>. Una opzione molto comoda è
+<code class="xref std std-option docutils literal notranslate"><span class="pre">-v</span></code> che consente di invertire l'effetto della selezione, ossia di
+emettere solo le linee che non soddisfano l'espressione regolare (o,
+semplicemente, che non contengono il testo specificato).</p>
+<p><strong class="command">cut</strong>, abbiamo visto che questo comando permette di selezionare in
+base ai byte, esso può anche essere usato per record con campi di lunghezza
+variabile, purché delimitati da un singolo carattere. In questo caso, si
+specifica il delimitatore con l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code> e l'elenco dei campi
+separato da virgole con l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-f</span></code>. Se il carattere separatore è
+presente più di una volta tra i campi (come, ad esempio, lo è lo spazio
+nell'output di <strong class="command">ls</strong>) può essere utile eliminare tali duplicati
+ricorrendo all'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-s</span></code> del comando <strong class="command">tr</strong> che sarà discusso
+nella prossima sezione. Come esempio si consideri la pipe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> rev /etc/passwd <span class="p">|</span> cut -d: -f1 <span class="p">|</span> rev
+<span class="go">/usr/bin/false</span>
+<span class="go">/bin/sh</span>
+<span class="go">/bin/csh</span>
+<span class="go">/bin/bash</span>
+</pre></div>
+</div>
+<p>che mostra l'ultimo campo del file <code class="file docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, un file che contiene
+varie informazioni riguardo agli utenti del sistema e che è ha una linea per
+ogni utente, con vari campi separati dal carattere <code class="docutils literal notranslate"><span class="pre">:</span></code> e dove l'ultimo campo
+(ossia il primo, se la riga è rovesciata) è il path della shell che l'utente
+ha scelto di usare.</p>
+<p><strong class="command">paste</strong>, come c'è da aspettarsi, se è possibile tagliare un file
+secondo le sue colonne, è anche possibile incollare diversi file facendoli
+risultare come le colonne di un nuovo file che li raggruppi. Ad esempio, per
+ottenere un file di tre colonne, due che riportino nomi e proprietari di
+alcuni file con estensione <code class="docutils literal notranslate"><span class="pre">.txt</span></code> e l'altra che ne contenga il numero di
+linee possiamo fare <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">*.txt</span> <span class="pre">|</span> <span class="pre">tr</span> <span class="pre">-s</span> <span class="pre">'</span> <span class="pre">'</span> <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-d'</span> <span class="pre">'</span> <span class="pre">-f3,9</span></code> per ottenere
+le prime due colonne (notate l'uso congiunto di <code class="docutils literal notranslate"><span class="pre">tr</span> <span class="pre">-s</span> <span class="pre">'</span> <span class="pre">'</span></code> e <code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">-d'</span> <span class="pre">'</span></code>
+per usare lo spazio come singolo delimitatore), quindi fare <code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">*.txt</span> <span class="pre">|</span> <span class="pre">tr</span>
+<span class="pre">-s</span> <span class="pre">'</span> <span class="pre">'</span> <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-d'</span> <span class="pre">'</span> <span class="pre">-f</span> <span class="pre">2</span></code> per ottenere la colonna dei numeri di linea, in fine
+(usando <code class="docutils literal notranslate"><span class="pre">&lt;()</span></code> invece di due file temporanei):</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> paste &lt;<span class="o">(</span>ls -l *.txt <span class="p">|</span> tr -s <span class="s1">&#39; &#39;</span> <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f3,9<span class="o">)</span> &lt;<span class="o">(</span>wc -l *.txt <span class="p">|</span> tr -s <span class="s1">&#39; &#39;</span> <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">2</span><span class="o">)</span>
+<span class="go">18      santini a.txt</span>
+<span class="go">21      santini b.txt</span>
+<span class="go">33      santini c.txt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="semplici-manipolazioni">
+<h3>Semplici manipolazioni<a class="headerlink" href="#semplici-manipolazioni" title="Link a questa intestazione">¶</a></h3>
+<p><strong class="command">sort</strong>, <strong class="command">uniq</strong> questi due comandi sono molto utili perché
+consentono il primo di ordinare il contenuto di un file (lessicograficamente,
+o secondo l'ordine numerico) e il secondo, di emettere, a partire da un file
+ordinato contenente linee ripetute, una sola linea per ripetizione. Ad
+esempio, il comando <strong class="command">who</strong> emette la lista di tutte le login attive,
+in questo modo, un utente che si è collegato più volte, compare su diverse
+linee. Se vogliamo sapere chi sono (o contare) gli utenti distinti collegati
+al sistema possiamo allora fare:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> who <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f1 <span class="p">|</span> sort <span class="p">|</span> uniq
+<span class="go">santini</span>
+</pre></div>
+</div>
+<p>dove con la sequenza di pipe dapprima consideriamo solo il nome degli utenti
+(il primo campo della riga, separato dagli altri tramite uno spazio), poi
+mettiamo in ordine il file in modo da evidenziare in ordine le linee ripetute
+e, in fine, emettiamo solo gli utenti distinti. Se ci interessasse solo il
+loro numero, e non il loro nome, potremmo fare:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> who <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f1 <span class="p">|</span> sort <span class="p">|</span> uniq <span class="p">|</span> wc -l
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>Le opzioni <code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code> e <code class="xref std std-option docutils literal notranslate"><span class="pre">-c</span></code> di <strong class="command">uniq</strong> consentono,
+rispettivamente, di ottenere le sole linee duplicate, o il conteggio di quante
+volte ogni linea sia duplicata.</p>
+<p><strong class="command">sed</strong>, <strong class="command">tr</strong> talvolta può essere molto utile sostituire tutte
+le occorrenze di una parola, o di un carattere, con un'altra parola, o
+carattere. Il comando <strong class="command">sed</strong> è un &quot;editor di stream&quot;, ossia può
+effettuare quelle modifiche che normalmente un utente esegue con un editor
+normale su di un file operando invece tramite pipe. Tale comando è quindi
+molto potente (controllate il manuale se volete), una delle sue funzioni è
+quella che in un editor si chiamerebbe &quot;cerca e rimpiazza&quot;. La sintassi, in
+questo caso è:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">sed &#39;s/prima/dopo/g;&#39;</span>
+</pre></div>
+</div>
+<p>che, per ogni linea del suo standard input che contiene la parola <code class="docutils literal notranslate"><span class="pre">prima</span></code>
+emette sul suo standard output la stessa linea con la parola <code class="docutils literal notranslate"><span class="pre">dopo</span></code> al posto
+di <code class="docutils literal notranslate"><span class="pre">prima</span></code> (in realtà, è possibile specificare sostituzioni molto più
+potenti, e complicate, tramite espressioni regolari). Se, per caso, la parola
+che volete modificare contiene il carattere <code class="docutils literal notranslate"><span class="pre">/</span></code> potete usare la stessa
+sintassi di prima dove avrete rimpiazzato il carattere con qualunque altro
+carattere (tutte e tre le volte che compare nell'espressione). Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls /var/spool/mail/* <span class="p">|</span> sed <span class="s1">&#39;s|/var/spool/mail/|mailbox: |g;&#39;</span>
+<span class="go">mailbox: santini.mbox</span>
+<span class="go">mailbox: ilenia.mbox</span>
+<span class="go">mailbox: root.mbx</span>
+</pre></div>
+</div>
+<p>Come caso particolare, la sostituzione <code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">'s/prima//g;'</span></code> ha come effetto
+di cancellare tutte le occorrenze della parola <code class="docutils literal notranslate"><span class="pre">prima</span></code>. Se le due parole
+sono costituite da un solo carattere, possiamo ottenere lo stesso effetto con
+il comando <strong class="command">tr</strong>, in particolare,:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">tr set1 set2</span>
+</pre></div>
+</div>
+<p>se <code class="docutils literal notranslate"><span class="pre">set1</span></code> e <code class="docutils literal notranslate"><span class="pre">set2</span></code> sono due insiemi dello stesso numero di caratteri, il
+comando sostituirà ordinatamente le occorrenze di ciascun carattere del primo
+insieme con quello del secondo. Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> ciao <span class="p">|</span> tr aeiou <span class="m">12345</span>
+<span class="go">c314</span>
+</pre></div>
+</div>
+<p>Alcune opzioni molto comode del comando sono <code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code> che cancella tutte
+le occorrenze dei caratteri del primo insieme e <code class="xref std std-option docutils literal notranslate"><span class="pre">-s</span></code> che dapprima
+sostituisce le occorrenze multiple dei caratteri del primo insieme con una
+occorrenza singola. Così, ad esempio,:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;ciao   come te      la   passi&#39;</span> <span class="p">|</span> tr -s <span class="s1">&#39; &#39;</span> <span class="s1">&#39;:&#39;</span>
+<span class="go">ciao:come:te:la:passi</span>
+</pre></div>
+</div>
+<p>che è molto comodo per &quot;normalizzare&quot; una linea in cui i campi siano separati
+da uno o più spazi (trasformandola, nell'esempio, in una linea in cui i campi
+sono separati da <code class="docutils literal notranslate"><span class="pre">:</span></code>).</p>
+<p><strong class="command">awk</strong>, talvolta vorremmo eseguire una semplice operazione per ogni
+linea di un file come, ad esempio, sommare i valori che compaiono in una certa
+colonna. In questo caso, il comando <strong class="command">awk</strong> può essere d'aiuto, sebbene
+esso sia in generale molto potente e complicato (controllate il manuale, al
+solito). La sintassi generale è <code class="docutils literal notranslate"><span class="pre">awk</span> <span class="pre">'selettore</span> <span class="pre">{</span> <span class="pre">istruzioni</span> <span class="pre">}</span> <span class="pre">'</span></code> dove il
+<code class="docutils literal notranslate"><span class="pre">selettore</span></code> indica su quali linee eseguire le <code class="docutils literal notranslate"><span class="pre">istruzioni</span></code>. Il
+<code class="docutils literal notranslate"><span class="pre">selettore</span></code> può venir omesso, nel qual caso le istruzioni si applicheranno
+ad ogni riga, altrimenti può essere una espressione regolare racchiusa tra
+barre e le istruzioni verranno eseguite solo sulle linee che soddisfano tale
+espressione, oppure <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code>, o <code class="docutils literal notranslate"><span class="pre">END</span></code> per indicare, rispettivamente, che le
+istruzioni vanno eseguite all'inizio, o alla fine del file. Le <code class="docutils literal notranslate"><span class="pre">istruzioni</span></code>
+sono molto simili a quelle usuali di un linguaggio di programmazione (si veda
+il manuale per maggiori dettagli); ogni riga è suddivisa in campi (normalmente
+separati da uno o più spazi, o segni di tabulazione) e le istruzioni possono
+riferirsi ai campi tramite le variabili <code class="docutils literal notranslate"><span class="pre">$1</span></code>, <code class="docutils literal notranslate"><span class="pre">$2</span></code>… Tornando al nostro
+esempio, supponiamo di voler sommare la dimensione dei file con estensione
+<code class="docutils literal notranslate"><span class="pre">*.jpg</span></code> contenuti nella directory corrente. A tale scopo possiamo usare il
+seguente comando:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls -l <span class="p">|</span> awk <span class="s1">&#39;BEGIN { tot = 0; } /jpg/ { tot = tot + $5 } END { print tot; } &#39;</span>
+<span class="go">2631021</span>
+</pre></div>
+</div>
+<p><strong class="command">join</strong> terminiamo la discussione con un comando molto utile per
+&quot;mettere assieme&quot; due file basandoci sul contenuto delle loro linee.
+Immaginiamo di avere due file che contengono diverse righe su ciascuna delle
+quali sono presenti vari campi separati da un carattere fissato. Ad esempio,
+il file <code class="file docutils literal notranslate"><span class="pre">/etc/passwd</span></code> visto in precedenza contiene una riga per utente
+con diversi campi separati da <code class="docutils literal notranslate"><span class="pre">:</span></code>, tra i quali il primo e il terzo sono
+rispettivamente la stringa ed il numero che il sistema usa per identificare
+l'utente. Ad esempio, sul mio sistema, si ha:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cut -d: -f1,3 /etc/passwd
+<span class="go">nessuno:500</span>
+<span class="go">ilenia:502</span>
+<span class="go">santini:501</span>
+</pre></div>
+</div>
+<p>Consideriamo ora la pipe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls -ln <span class="p">|</span> awk <span class="s1">&#39;{print $3&quot;:&quot;$9}&#39;</span>
+<span class="go">503:nostro.txt</span>
+<span class="go">501:mio.txt</span>
+<span class="go">502:suo.txt</span>
+</pre></div>
+</div>
+<p>che produce l'elenco dei file della directory corrente preceduti dal numero
+dell'utente che li possiede (si veda la prossima sezione per maggiori dettagli
+sulla nozione di proprietario di un file). Se volessimo conoscere non tanto il
+numero, quanto il nome del proprietario di ogni file dovremmo &quot;mettere
+assieme&quot; i due file &quot;incollando&quot; le righe che hanno nel posto riservato al
+numero, il medesimo valore. Per farlo dobbiamo per prima cosa mettere in
+ordine (alfabetico, anche se qui ci interessano dei numeri) i due file.
+Possiamo farlo con le pipe:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cut -d: -f1,3 /etc/passwd <span class="p">|</span> sort -t: -k2,2
+<span class="go">nessuno:500</span>
+<span class="go">santini:501</span>
+<span class="go">ilenia:502</span>
+<span class="gp">$</span> ls -ln <span class="p">|</span> awk <span class="s1">&#39;{print $3&quot;:&quot;$9}&#39;</span> <span class="p">|</span> sort -t: -k1,1
+<span class="go">501:mio.txt</span>
+<span class="go">502:suo.txt</span>
+<span class="go">503:nostro.txt</span>
+</pre></div>
+</div>
+<p>dove abbiamo usato i parametri <code class="xref std std-option docutils literal notranslate"><span class="pre">-t</span></code> e <code class="xref std std-option docutils literal notranslate"><span class="pre">-k</span></code> per indicare a
+<strong class="command">sort</strong> che volevamo ordinare in base al secondo, o al primo campo, e
+che i campi sono separati da <code class="docutils literal notranslate"><span class="pre">:</span></code>. Il comando <strong class="command">join</strong> ci permette di
+unire tali file, una volta che specifichiamo quale sia il campo che vogliamo
+usare per identificare le righe corrispondenti. Nel nostro caso di tratta del
+secondo campo del primo file e del primo campo del secondo file, mentre i
+campi sono separati dal solito carattere. Ecco come si conclude quest'ultimo
+complicato esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> join -t: -1 <span class="m">2</span> -2 <span class="m">1</span> &lt;<span class="o">(</span>cut -d: -f1,3 /etc/passwd <span class="p">|</span> sort -t: -k2,2<span class="o">)</span> &lt;<span class="o">(</span>ls -ln <span class="p">|</span> awk <span class="s1">&#39;{print $3&quot;:&quot;$9}&#39;</span> <span class="p">|</span> sort -t: -k1,1<span class="o">)</span>
+<span class="go">501:santini:mio.txt</span>
+<span class="go">502:ilenia:suo.txt</span>
+</pre></div>
+</div>
+<p>Osservate che mancano all'appello una riga del primo e una del secondo file,
+infatti per esse manca la corrispondenza tra i campi che abbiamo scelto per
+ottenere l'unione. L'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-a</span></code> consente di recuperare anche tali
+linee (che non verranno però &quot;incollate&quot; a nessuna linea dell'altro file). In
+questo modo, il comando <strong class="command">join</strong> può essere usato, invece che per
+&quot;mettere assieme&quot; due file, per trovarne in un certo senso l'intersezione, o
+la differenza. Ma questo è lasciato per esercizio alla vostra curiosità.</p>
+<p><strong class="command">diff</strong>, <strong class="command">cmp</strong> senza entrare nei dettagli, questi due comandi
+sono in grado di mostrare le differenze, o di individuare almeno la loro
+presenza, tra due file; anche se il loro uso per manipolare file è molto
+complicato, potete almeno utilizzarli per avere una indicazione sulla
+somiglianza tra due file. Questo vi può essere utile ad esempio per
+confrontare l'output che vi aspettate debba avere un programma con quello che
+ha effettivamente; l'exit code (che sarà spiegato in seguito), unitamente alle
+espressioni condizionali della shell, può essere usato in uno script che
+controlli se il vostro programma si comporta come vi aspettate, o meno.</p>
+</div>
+</div>
+<div class="section" id="proprieta-e-permessi">
+<h2>Proprietà e permessi<a class="headerlink" href="#proprieta-e-permessi" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="utenti-e-gruppi">
+<h3>Utenti e gruppi<a class="headerlink" href="#utenti-e-gruppi" title="Link a questa intestazione">¶</a></h3>
+<p>Senza entrare tanto nel dettaglio, ogni sistema Unix, essendo condiviso da più
+utenti, ha un modo per stabilire chi può fare cosa. Molto semplicemente, ogni
+utente è identificato in modo univoco dal sistema tramite un numero intero,
+detto <em class="dfn">user identity</em> (<abbr>uid</abbr>) e gli utenti sono raccolti in gruppi
+anch'essi identificati univocamente da un numero, detto <em class="dfn">group identity</em>
+(<abbr>gid</abbr>). Se volete sapere chi siete e a che gruppo appartenete, potete
+usare il comando <strong class="command">id</strong>, nel mio caso:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> id
+<span class="go">uid=500(santini) gid=100(users) groups=100(users), 98(admin)</span>
+</pre></div>
+</div>
+<p>in genere è l'amministratore del sistema che definisce i gruppi e decide a che
+gruppo appartenete.</p>
+</div>
+<div class="section" id="proprieta-di-file-e-directory">
+<h3>Proprietà di file e directory<a class="headerlink" href="#proprieta-di-file-e-directory" title="Link a questa intestazione">¶</a></h3>
+<p>Tutti i file e le directory del sistema sono associati ad un utente e ad un
+gruppo che li <em>possiedono</em>; questo permette di regolare da che utente, o da
+che gruppo di utenti, essi possano essere scritti, letti, eseguiti (nel caso
+di file, o attraversati (nel caso delle directory). Tramite <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> è
+possibile conoscere queste informazioni:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls -l /home/*
+</pre></div>
+</div>
+<p>da questa lista, nella parte sinistra, si possono osservare i permessi
+<code class="docutils literal notranslate"><span class="pre">-rwxr-x----</span></code>, mentre più a destra sono le indicazioni sull'utente e gruppo
+proprietari del file. Interpretare i permessi è semplice, sono tre gruppi di
+tre lettere, <code class="docutils literal notranslate"><span class="pre">r</span></code> significa permesso in lettura, <code class="docutils literal notranslate"><span class="pre">w</span></code> in scrittura e <code class="docutils literal notranslate"><span class="pre">x</span></code>
+in esecuzione/attraversamento mentre il trattino significa permesso mancante.
+Il primo gruppo riguarda l'utente, il secondo il gruppo ed il terzo tutti gli
+utenti del sistema.</p>
+<p>Il comando <strong class="command">chmod</strong> permette di modificare i permessi di un file,
+mentre il comando <strong class="command">access</strong> permette di verificare se chi lo invoca ha
+determinati permessi su un dato file. Ad esempio:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="k">if</span> access -w /<span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> si<span class="p">;</span> <span class="k">fi</span>
+</pre></div>
+</div>
+<p>darà quasi certamente output nullo, visto che un utente normale non ha
+permesso di scrittura nella root directory del sistema. Fate riferimento al
+manuale per la sintassi ed il significato di tali comandi.</p>
+</div>
+<div class="section" id="i-processi">
+<h3>I processi<a class="headerlink" href="#i-processi" title="Link a questa intestazione">¶</a></h3>
+<p>Alcuni file del sistema possono essere <em>eseguiti</em>, sia nel senso che
+contengono del codice che il sistema sa come eseguire (ossia, si tratta di
+codice binario, o di sorgenti per qualche tipo di interprete installato nel
+sistema) che nel senso che hanno gli appropriati permessi di esecuzione. Se
+specifichiamo uno di tali file come primo elemento della riga di comando, il
+sistema lo eseguirà. Così come la directory corrente permette di specificare
+in modo abbreviato certi file, l'interprete conserva sempre una lista di
+directory (separate da due punti) nelle quali cercare i comandi, questa
+variabile si chiama <code class="file docutils literal notranslate"><span class="pre">PATH</span></code>. Sul mio sistema:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="nv">$PATH</span>
+<span class="go">/bin:/usr/bin:/usr/local/bin:/home/santini/bin</span>
+</pre></div>
+</div>
+<p>il che vuol dire che se scrivessi <code class="docutils literal notranslate"><span class="pre">pippo</span></code> sulla linea di comando il sistema
+cercherebbe un file eseguibile di nome <code class="file docutils literal notranslate"><span class="pre">/bin/pippo</span></code>, o
+<code class="file docutils literal notranslate"><span class="pre">/usr/bin/pippo</span></code> e via discorrendo ed eseguirebbe il primo trovato. Se
+voglio eseguire un comando nella directory corrente posso agire in due modi:
+la cosa più sicura è invocarlo precedendolo con <code class="docutils literal notranslate"><span class="pre">./</span></code>, ovvero nell'esempio
+precedente, come <code class="docutils literal notranslate"><span class="pre">./pippo</span></code>; altrimenti, potrei aggiungere <code class="docutils literal notranslate"><span class="pre">.</span></code> alla lista
+in <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, ma questo può essere rischioso dal punto di vista della
+sicurezza.</p>
+<p>Un file eseguibile (nel senso precedente), una volta che viene invocato dalla
+riga di comando si &quot;attiva&quot; e diventa un <em class="dfn">processo</em> del sistema.</p>
+<p>Si può ottenere l'elenco di tutti i processi attivi nel sistema con il comando
+<strong class="command">ps</strong> di cui abbiamo visto diversi esempi sin qui. Invocato senza
+opzioni, riporta solo i comandi attivati dalla login corrente. Invocato con
+argomento <code class="docutils literal notranslate"><span class="pre">aux</span></code> (si tratta in verità di opzioni, ma per cui va omesso il
+trattino), esso restituisce l'elenco di tutti i processi attivi con l'indicazione
+dell'utente che li sta eseguendo. Se il vostro nome utente è
+<code class="docutils literal notranslate"><span class="pre">pippo</span></code>, con:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ps aux <span class="p">|</span> grep pippo
+</pre></div>
+</div>
+<p>potete conoscere la lista di tutti i vostri processi attivi nel sistema. Una
+volta che un processo è attivo, potete terminarlo inviandogli un messaggio
+denominato <code class="docutils literal notranslate"><span class="pre">term</span></code>, o <code class="docutils literal notranslate"><span class="pre">kill</span></code>. Per fare questo potete usare il comando
+<strong class="command">kill</strong> che accetta come argomento il numero che identifica il
+processo nel sistema, detto <em class="dfn">process identity</em> (<abbr>pid</abbr>). Per
+scoprire il pid potete usare il comando <strong class="command">ps</strong>, dove il pid è il primo
+numero che compare su ogni riga. Se quindi il processo che volete uccidere
+avesse pid <code class="docutils literal notranslate"><span class="pre">123</span></code>, ad esempio, potete usare:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">kill</span> <span class="m">123</span>
+</pre></div>
+</div>
+<p>per chiedere &quot;gentilmente&quot; al processo di terminare (segnale
+<code class="docutils literal notranslate"><span class="pre">term</span></code>), oppure:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">kill</span> -9 <span class="m">123</span>
+</pre></div>
+</div>
+<p>per ordinargli di cessare immediatamente l'esecuzione (segnale <code class="docutils literal notranslate"><span class="pre">kill</span></code>). La
+differenza sta nel fatto che con il primo segnale alcuni programmi (come ad
+esempio gli editor), prima di terminare salvano il lavoro parzialmente svolto,
+mentre con il secondo segnale sono costretti ad uscire immediatamente,
+potenzialmente causando una perdita di dati non ancora salvati. Il secondo
+segnale si rende però necessario qualora il programma sembri non rispondere al
+primo segnale.</p>
+<p>Su alcuni sistemi, il comando <strong class="command">killall</strong> seguito da un nome di comando
+permette di inviare un segnale (term, o kill se usate l'opzione <code class="xref std std-option docutils literal notranslate"><span class="pre">-9</span></code>)
+a tutti i processi che sono stati invocati con il nome di quel comando.</p>
+<p>Non temete di molestare gli altri utenti: il sistema è ben protetto e vi
+consente di inviare messaggi (quindi di terminare) soltanto i processi che
+avete istanziato voi stessi.</p>
+</div>
+<div class="section" id="mettiamo-assieme-le-cose">
+<h3>Mettiamo assieme le cose<a class="headerlink" href="#mettiamo-assieme-le-cose" title="Link a questa intestazione">¶</a></h3>
+<p>Ad ogni processo sono associati un utente ed un gruppo che sono solitamente
+l'utente ed il gruppo del processo che lo ha invocato: in Unix tutti i
+processi sono &quot;figli&quot; di qualche altro processo (e sono, non c'è bisogno di
+dirlo, organizzati in un albero).</p>
+<p>Ogni processo, alla sua terminazione, ritorna un valore intero (detto
+<em class="dfn">exit status</em>) che viene comunemente utilizzato per indicare al processo
+&quot;padre&quot; l'esito della computazione; di solito il valore <code class="docutils literal notranslate"><span class="pre">0</span></code> sta ad indicare
+una esecuzione terminata senza errori, mentre valori positivi stanno ad
+indicare diverse possibili condizioni anomale di terminazione. Il manuale di
+ogni comando che abbiamo visto specifica, per ciascuno di essi, quale sia il
+significato dei suoi valori d'uscita.</p>
+<p>Confrontando l'utente e gruppo associati ad un processo e l'utente e il gruppo
+associati ad un file è possibile scoprire cosa può fare quel processo a quel
+file, se può leggerlo, scriverlo, o eseguirlo.</p>
+<p>Questo meccanismo sarebbe molto limitato se non fosse possibile, in qualche
+modo, far sì che un processo abbia utente e gruppo diversi da quelli del
+processo che lo ha invocato. Cambiare l'utente e il gruppo di un processo è
+quindi ovviamente possibile, ma si rimanda alla lettura del libro consigliato
+per scoprire i dettagli della questione.</p>
+</div>
+</div>
+</div>
+
+
+    </main>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <a href="https://github.com/mapio/labprog"><img src="https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars" alt="GitHub stars"></a>
+      <a href="http://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a>
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg" alt="License: CC BY-SA 4.0"></a>
+      <span class="float-right">© Massimo Santini 2018 - 25/1/19</span>
+  </div>
+</footer>
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117753500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-117753500-1');
+  $(document).ready(function() {
+      $('p > img').addClass('mx-auto d-block');
+      $('.tocnav a').addClass('dropdown-item');
+      $('.tocnav ul').css('list-style-type', 'none');
+      $('.tocnav > ul').css('padding', '0');
+  });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "Massimo Santini",
+  "url": "https://santini.di.unimi.it/",
+  "sameAs": [
+    "https://www.linkedin.com/in/massimosantini/",
+    "https://twitter.com/mapio"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Introduzione a GNU/Linux",
+  "image": [
+    "https://labprog.mapio.it/_static/logo.png"
+   ],
+  "datePublished": "2019-01-25T08:55:00.809614",
+  "dateModified": "2019-01-25T08:55:00.809614",
+  "author": {
+    "@type": "Person",
+    "name": "Massimo Santini"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Dipartimento di Informatica",
+    "logo": "http://www.unimi.it/img/universitaInterno.jpg"
+  },
+  "description": "Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C."
+}
+</script>
+  </body>
+</html>

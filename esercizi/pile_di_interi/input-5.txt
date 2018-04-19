@@ -1,0 +1,60 @@
+3 init 3
+3 pop
+3 push 12
+1 init 3
+1 push 23
+4 init 3
+4 push 51
+4 top
+2 init 3
+2 pop
+4 push 12
+4 pop
+1 pop
+1 empty
+2 full
+2 empty
+3 empty
+3 pop
+4 full
+1 empty
+4 empty
+1 push 25
+1 pop
+2 push 5
+3 push 55
+2 push 2552
+3 pop
+2 pop
+1 top
+4 empty
+4 push 12
+2 push 45
+3 top
+2 push 56
+4 pop
+4 pop
+3 empty
+4 push 34
+3 push 3
+3 full
+1 push 3
+1 pop
+2 empty
+1 push 55
+4 pop
+1 full
+2 top
+3 pop
+2 pop
+3 push 3352
+2 pop
+1 pop
+1 empty
+1 full
+2 empty
+2 full
+3 empty
+3 full
+4 empty
+4 full

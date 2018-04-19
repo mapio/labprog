@@ -1,0 +1,9 @@
+http
+www.dsi.unimi.it
+img/titolo1.jpg
+http
+santini.dsi.unimi.it
+
+ftp
+mirror.switch.ch
+pool/2/mirror/tex/systems/texlive/tlnet/00_TIME.txt

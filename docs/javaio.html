@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>Input/output (ed altro) con le API di Java &#8212; Labprog @ UniMI 1.0-beta documentazione</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.0/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="_static/custom.css" type="text/css">
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css">
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Input/output (ed altro) con la libreria standard in C" href="cstdio.html" />
+    <link rel="prev" title="Introduzione a GNU/Linux" href="linux.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+
+    <!-- Verification for Google search -->
+    <meta name="google-site-verification" content="DLtR6Lm75qujQDCAeHv1Am-h5-g69PdfKA-r8Ut-6JY">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mapio">
+    <meta name="twitter:creator" content="@mapio">
+    <meta name="twitter:title" content="LabProg@UniMI — Dieci anni di codice">
+    <meta name="twitter:description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+    <meta name="twitter:image" content="https://labprog.mapio.it/_static/logo.png">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="LabProg@UniMI — Dieci anni di codice">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://labprog.mapio.it/">
+    <meta property="og:image" content="https://labprog.mapio.it/_static/logo.png">
+    <meta property="og:description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+    <meta property="og:site_name" content="LabProg@UniMI — Dieci anni di codice">
+    <meta property="article:published_time" content="2019-01-25T08:55:00.809614">
+    <meta property="article:modified_time" content="2019-01-25T08:55:00.809614">
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#eaf7f7",
+          "text": "#5c7291"
+        },
+        "button": {
+          "background": "#56cbdb",
+          "text": "#ffffff"
+        }
+      },
+      "position": "bottom-right",
+      "content": {
+        "message": "Questo sito utilizza cookie per raccogliere informazioni, in forma aggregata, sul numero degli utenti.",
+        "dismiss": "Va bene!",
+        "link": "Maggiori informazioni.",
+        "href": "http://www.unimi.it/62210.htm"
+      }
+    })});
+    </script>
+
+  </head><body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html">LabProg@UniMI</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="esercizi.html">Esercizi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="strumenti.html">Strumenti</a>
+      </li>
+      <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Guide
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="linux.html">GNU/Linux</a>
+               <a class="dropdown-item" href="javaio.html">Java I/O</a>
+               <a class="dropdown-item" href="cstdio.html">C I/O</a>
+             </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-list-alt"></i>
+          </a>
+          <div class="dropdown-menu tocnav" aria-labelledby="navbarDropdown2">
+          <ul>
+<li><a class="reference internal" href="#">Input/output (ed altro) con le API di Java</a><ul>
+<li><a class="reference internal" href="#argomenti-sulla-linea-di-comando">Argomenti sulla linea di comando</a></li>
+<li><a class="reference internal" href="#input-output">Input/Output</a><ul>
+<li><a class="reference internal" href="#parte-istanziare-l-oggetto-usato-per-l-input">Parte α: istanziare l'oggetto usato per l'input</a></li>
+<li><a class="reference internal" href="#parte-consumare-l-input">Parte β: consumare l'input</a><ul>
+<li><a class="reference internal" href="#tipi-elementari">Tipi elementari</a></li>
+<li><a class="reference internal" href="#stringhe">Stringhe</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#osservazioni-ed-esempi">Osservazioni ed esempi</a></li>
+<li><a class="reference internal" href="#altri-approcci">Altri approcci</a></li>
+<li><a class="reference internal" href="#dati-non-testuali">Dati non testuali</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="search.html" method="get">
+      <input name="q" class="form-control mr-sm-2" type="text" placeholder="parola chiave">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Cerca</button>
+    </form>
+  </div>
+</nav>
+  
+
+    <div class="document">
+    <main class="container">
+        
+  <div class="section" id="input-output-ed-altro-con-le-api-di-java">
+<span id="javaio-label"></span><h1>Input/output (ed altro) con le API di Java<a class="headerlink" href="#input-output-ed-altro-con-le-api-di-java" title="Link a questa intestazione">¶</a></h1>
+<p>Di seguito sono riportate le risposte (con <em>esempi di codice sorgente</em>) ad
+alcune delle domande più frequenti riguardanti gli esercizi d'esame. Le
+risposte sono organizzate secondo il seguente</p>
+<div class="section" id="argomenti-sulla-linea-di-comando">
+<h2>Argomenti sulla linea di comando<a class="headerlink" href="#argomenti-sulla-linea-di-comando" title="Link a questa intestazione">¶</a></h2>
+<p>Per <em class="dfn">argomenti sulla linea di comando</em> si intendono tutte le parole
+(stringhe massimali non contenenti spazio) che seguono il nome della classe
+nell'invocazione della JVM. Ad esempio, se avete compilato una classe di nome
+<code class="file docutils literal notranslate"><span class="pre">Soluzione</span></code> e ne invocate l'esecuzione tramite l'interprete come:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="n">Soluzione</span> <span class="n">uno</span>          <span class="mi">2</span> <span class="n">tr_e</span>
+</pre></div>
+</div>
+<p>gli argomenti saranno le tre parole: <code class="docutils literal notranslate"><span class="pre">uno</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> e <code class="docutils literal notranslate"><span class="pre">tr_e</span></code>.</p>
+<p>La funzione <code class="docutils literal notranslate"><span class="pre">main</span></code> che ha segnatura:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">);</span>
+</pre></div>
+</div>
+<p>può accedere a tali parole tramite l'array  <code class="docutils literal notranslate"><span class="pre">args</span></code> il cui <code class="docutils literal notranslate"><span class="pre">i</span></code>-esimo
+puntatore punta alla stringa corrispondente all'<code class="docutils literal notranslate"><span class="pre">i</span></code>-esimo argomento
+(l'argomento di posto 0 è la prima parola).</p>
+<p>Osservate che gli argomenti sono <em>stringhe</em>, qualora sia richiesto trattare
+alcuni di essi come numeri sarà necessario usare una funzione di conversione,
+come ad esempio <code class="docutils literal notranslate"><span class="pre">parseT</span></code> delle varie sottoclassi di <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html">Number</a>  (dove <code class="docutils literal notranslate"><span class="pre">T</span></code> è
+uno dei tipi elementari), come ad esempio con il metodo  <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-">parseInt</a> di
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">Integer</a>.</p>
+<p>Si riporta, a titolo di esempio, un programma che, dati per argomenti alcuni
+numeri interi, ne stampa la somma:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SommaArgs</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">somma</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">arg</span> <span class="o">:</span> <span class="n">args</span><span class="o">)</span>
+            <span class="n">somma</span> <span class="o">+=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">arg</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">somma</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Scarica il <a class="reference download internal" download="" href="_downloads/9e38f10569d0f3fba26a9555a633b90d/SommaArgs.java"><code class="xref download docutils literal notranslate"><span class="pre">codice</span> <span class="pre">sorgente</span></code></a> di questo esempio.</p>
+</div>
+<div class="section" id="input-output">
+<h2>Input/Output<a class="headerlink" href="#input-output" title="Link a questa intestazione">¶</a></h2>
+<p>Di seguito sono riportati alcuni scampoli di codice Java necessari a gestire
+l'input in formato testuale che tipicamente è richiesto dalla soluzione degli
+esercizi di laboratorio e d'esame.</p>
+<p>La gestione di tale input può essere organizzata secondo due coppie
+indipendenti di varianti a seconda</p>
+<ol class="arabic simple">
+<li><p>di come viene consumato</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>come sequenza di linee,</p></li>
+<li><p><em>tokenizzato</em> come sequenza di tipi primitivi (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, ...) e <em>stringhe</em>;</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>che provenga</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>dal flusso standard (<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#in">System.in</a>),</p></li>
+<li><p>da un file (indicato tramite il suo <em>path</em>).</p></li>
+</ol>
+</div></blockquote>
+<p>Il codice ha in generale la seguente forma:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">α</span>  <span class="o">...</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="o">...(</span> <span class="o">...</span> <span class="o">);</span>
+<span class="n">β</span>  <span class="nf">while</span> <span class="o">(</span> <span class="cm">/* c&#39;è input */</span> <span class="o">)</span>
+<span class="n">β</span>     <span class="cm">/* consuma l&#39;input */</span>
+<span class="n">α</span>  <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>ed è organizzato in due parti:</p>
+<ul class="simple">
+<li><p>α istanziazione (e gestione) di un oggetto che rappresenti l'input,</p></li>
+<li><p>β ciclo che consumi (ed elabori) l'input.</p></li>
+</ul>
+<p>Secondo l'organizzazione logica discussa all'inizio, il modo in cui sarà
+consumato (1.) e l'origine dell'input (2.) daranno luogo a quattro diverse
+implementazioni della parte α, mentre la modalità in cui l'input sarà
+consumato (1.) darà luogo a due diverse implementazioni della parte β.</p>
+<div class="section" id="parte-istanziare-l-oggetto-usato-per-l-input">
+<h3>Parte α: istanziare l'oggetto usato per l'input<a class="headerlink" href="#parte-istanziare-l-oggetto-usato-per-l-input" title="Link a questa intestazione">¶</a></h3>
+<p>Per leggere l'input una linea dopo l'altra (1.1.) è sufficiente usare un
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html">BufferedReader</a>. Il costruttore di tale classe ha per parametro un
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html">Reader</a>, che può essere istanziato (2.1.) come un <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStreamReader.html">InputStreamReader</a> che a
+sua volta avvolga <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#in">System.in</a>, o (2.2.) come un <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/FileReader.html">FileReader</a>.</p>
+<p>D'altro canto, per <em>tokenizzare</em> l'input (1.2.) è sufficiente usare uno
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a>. Il costruttore di tale classe ha per parametro un <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html">InputStream</a>,
+che può essere direttamente (2.1.) un <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#in">System.in</a>, o istanziato (2.2.) come
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/FileInputStream.html">FileInputStream</a>.</p>
+<p>Le quattro versioni della parte α del codice sono pertanto:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">(</span><span class="mf">1.1</span><span class="o">.,</span> <span class="mf">2.1</span><span class="o">.)</span>  <span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span> <span class="n">System</span><span class="o">.</span><span class="na">in</span> <span class="o">)</span> <span class="o">);</span>
+<span class="o">(</span><span class="mf">1.1</span><span class="o">.,</span> <span class="mf">2.2</span><span class="o">.)</span>  <span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span> <span class="n">path</span> <span class="o">)</span> <span class="o">);</span>
+<span class="o">(</span><span class="mf">1.2</span><span class="o">.,</span> <span class="mf">2.1</span><span class="o">.)</span>  <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span> <span class="n">System</span><span class="o">.</span><span class="na">in</span> <span class="o">);</span>
+<span class="o">(</span><span class="mf">1.2</span><span class="o">.,</span> <span class="mf">2.2</span><span class="o">.)</span>  <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span> <span class="n">path</span> <span class="o">)</span> <span class="o">);</span>
+</pre></div>
+</div>
+<p>dove si assume che <code class="docutils literal notranslate"><span class="pre">path</span></code> sia una variabile di tipo stinga che contiene il
+<em>path</em> del file che contiene l'input.</p>
+</div>
+<div class="section" id="parte-consumare-l-input">
+<h3>Parte β: consumare l'input<a class="headerlink" href="#parte-consumare-l-input" title="Link a questa intestazione">¶</a></h3>
+<p>Per consumare (ed elaborare) l'input, sono sufficienti due solite
+implementazioni della parte β, dal momento che il tipo dell'oggetto <code class="docutils literal notranslate"><span class="pre">in</span></code> può
+essere solo un <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html">BufferedReader</a> o uno <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a>, a seconda di (1.), ma
+indipendentemente da (2.).</p>
+<p>Per leggere una sequenza di linee (1.1.) si può utilizzare il metodo
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html#readLine--">readLine</a>; per di più, tale metodo è in grado di segnalare la fine
+dell'input restituendo il valore speciale <code class="docutils literal notranslate"><span class="pre">null</span></code>. Il ciclo che consuma
+l'input, in questo caso, ha quindi la forma seguente:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">var</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">while</span> <span class="o">(</span> <span class="o">(</span> <span class="n">var</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">()</span> <span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span>
+   <span class="cm">/* consuma l&#39;input */</span>
+</pre></div>
+</div>
+<div class="section" id="tipi-elementari">
+<h4>Tipi elementari<a class="headerlink" href="#tipi-elementari" title="Link a questa intestazione">¶</a></h4>
+<p>Per leggere una sequenza di tipi elementari (1.2.) si possono utilizzare i
+metodi <code class="docutils literal notranslate"><span class="pre">nextT</span></code> (dove <code class="docutils literal notranslate"><span class="pre">T</span></code> è uno dei tipi elementari), ad esempio, per gli
+interi, si può usare il metodo <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html#nextInt--">nextInt</a>; per sapere se l'input è finito (o
+se ci sono ancora a disposizione altri elementi), si può usare il metodo
+<code class="docutils literal notranslate"><span class="pre">hasNextT</span></code> (dove <code class="docutils literal notranslate"><span class="pre">T</span></code> è, come sopra, uno dei tipi elementari), ad esempio,
+ancora nel caso degli interi <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html#hasNextInt--">hasNextInt</a>. Il ciclo che consuma l'input,
+sempre nel caso degli interi, ha quindi la forma seguente:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">(</span> <span class="n">in</span><span class="o">.</span><span class="na">hasNextInt</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+   <span class="kt">int</span> <span class="n">var</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+   <span class="cm">/* consuma l&#39;input */</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stringhe">
+<h4>Stringhe<a class="headerlink" href="#stringhe" title="Link a questa intestazione">¶</a></h4>
+<p>Qualora sia necessario leggere delle stringhe (1.2.), ossia delle sequenze
+massimali di caratteri diversi da <em>whitespace</em> (che sono spazio, segno di
+tabulazione orizzontale e verticale e a-capo), si possono usare i metodi
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html#next--">next</a>  e  <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html#hasNext--">hasNext</a> in modo del tutto analogo al caso precedente:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">(</span> <span class="n">in</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+   <span class="n">String</span> <span class="n">var</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+   <span class="cm">/* consuma l&#39;input */</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="osservazioni-ed-esempi">
+<h3>Osservazioni ed esempi<a class="headerlink" href="#osservazioni-ed-esempi" title="Link a questa intestazione">¶</a></h3>
+<p>Mettendo assieme gli esempi di codice delle parti α e β è possibile elaborare
+l'input, linea per linea o numero per numero, sia che provenga dal flusso
+standard che da un file.</p>
+<p>Un dettaglio utile da ricordare è che nella lettura del flusso standard da
+console (senza redirezione, cioè), la <strong>terminazione del flusso</strong> va <em>segnalata
+esplicitamente</em> tramite l'immissione dell'apposito carattere di controllo
+<code class="docutils literal notranslate"><span class="pre">^D</span></code> denominato <code class="docutils literal notranslate"><span class="pre">EOF</span></code> (<strong>end of file</strong>), che si ottiene usualmente premendo
+assieme i tasti <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> e <code class="docutils literal notranslate"><span class="pre">d</span></code> (minuscolo).</p>
+<p>Altro dettaglio importante è che <em>alcuni dei costruttori e metodi invocati
+possono sollevare eccezioni</em> di tipo <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html">IOException</a> (o sue sottoclassi), che
+devono essere <em>opportunamente gestite</em>. Nel contesto della prova d'esame,
+qualora tali metodi fossero invocati all'interno del metodo <code class="docutils literal notranslate"><span class="pre">main</span></code>, una
+soluzione plausibile è quella di aggiungere <code class="docutils literal notranslate"><span class="pre">throws</span> <span class="pre">IOException</span></code> alla
+dichiarazione di tale metodo (come  nel codice riportato di seguito).</p>
+<p>A titolo di esempio, riportiamo due piccoli programmi. Il primo legge l'input
+dal flusso standard ed emette ogni riga preceduta dal suo numero progressivo
+(per provare il suo funzionamento, si può ad esempio il comando <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">java</span>
+<span class="pre">NumeraLinee</span> <span class="pre">&lt;</span> <span class="pre">NumeraLinee.java</span></code> che, facendo uso della <em>redirezione</em>
+dell'input, numererà le linee del programma stesso).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumeraLinee</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">var</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">((</span><span class="n">var</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">var</span><span class="o">);</span>
+            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Scarica il <a class="reference download internal" download="" href="_downloads/c61034436cc70a4901314045d27b0f3d/NumeraLinee.java"><code class="xref download docutils literal notranslate"><span class="pre">codice</span> <span class="pre">sorgente</span></code></a> di questo esempio.</p>
+<p>Il secondo legge una sequenza di numeri in virgola mobile da un file il cui
+<em>path</em> è specificato come parametro (all'invocazione della JVM), e ne stampa
+la somma.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SommaInput</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="kt">float</span> <span class="n">somma</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="o">;</span>
+        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">path</span><span class="o">));</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">hasNextFloat</span><span class="o">())</span> <span class="o">{</span>
+            <span class="kt">float</span> <span class="n">var</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextFloat</span><span class="o">();</span>
+            <span class="n">somma</span> <span class="o">+=</span> <span class="n">var</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">somma</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Scarica il <a class="reference download internal" download="" href="_downloads/8ca188b2d0398a170b0a47b008e7a9e9/SommaInput.java"><code class="xref download docutils literal notranslate"><span class="pre">codice</span> <span class="pre">sorgente</span></code></a> di questo esempio.</p>
+<p>Di nuovo, a titolo di esempio, assumendo che esista un file <code class="docutils literal notranslate"><span class="pre">input.txt</span></code> che contenga:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mf">2.5</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+<p>eseguendo il programma con il comando <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">SommaInput</span> <span class="pre">input.txt</span></code>, verrà
+prodotto in output il numero <code class="docutils literal notranslate"><span class="pre">6.5</span></code></p>
+</div>
+<div class="section" id="altri-approcci">
+<h3>Altri approcci<a class="headerlink" href="#altri-approcci" title="Link a questa intestazione">¶</a></h3>
+<p>La ricchezza delle API di Java rende possibile risolvere il problema descritto
+in questa guida in molti altri modi. Questo è certamente una ricchezza, ma
+produce anche molta confusione in chi si avvicina per la prima volta al
+linguaggio e alle sue librerie.</p>
+<p>Ad esempio, l'input di tipi elementari potrebbe anche essere implementato
+leggendo l'input per linea, suddividendo poi la linea con uno
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html">StringTokenizer</a>, o con il metodo <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-">split</a> di <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a>, traducendo in fine
+le singole parti nei tipi elementari con i metodi <code class="docutils literal notranslate"><span class="pre">parseT</span></code> delle varie
+sottoclassi <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html">Number</a> (dove <code class="docutils literal notranslate"><span class="pre">T</span></code> è uno dei tipi elementari), come ad esempio
+con il metodo <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-">parseInt</a> di <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">Integer</a>. Evidentemente, l'uso della classe
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a>  appare una soluzione molto più elementare a questo tipo di
+problema. In ogni modo, una soluzione alternativa, in questo senso,
+dell'esercizio due potrebbe essere la seguente:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SommaInputBis</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="kt">float</span> <span class="n">somma</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="o">;</span>
+        <span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">path</span><span class="o">));</span>
+        <span class="n">String</span> <span class="n">var</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">((</span><span class="n">var</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">float</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Float</span><span class="o">.</span><span class="na">parseFloat</span><span class="o">(</span><span class="n">var</span><span class="o">);</span>
+            <span class="n">somma</span> <span class="o">+=</span> <span class="n">v</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">somma</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Scarica il <a class="reference download internal" download="" href="_downloads/728c54b857ffa5c8c6ad7af0a1b3a891/SommaInputBis.java"><code class="xref download docutils literal notranslate"><span class="pre">codice</span> <span class="pre">sorgente</span></code></a> di questo esempio.</p>
+<p>D'altro canto, a ben guardare, c'è un metodo <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html#nextLine--">nextLine</a> tra quelli di
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a> che si comporta sostanzialmente come il metodo <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html#readLine--">readLine</a> di
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html">BufferedReader</a>; in linea di principio, quindi, tutta la discussione si
+potrebbe di gran lunga semplificare limitandosi ad utilizzare la classe
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a> sia per leggere l'input linea per linea che in modo <em>tokenizzato</em>.
+Ma è altresì vero che l'uso di una classe complessa come <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a> per uno
+scopo così banale come quello di leggere l'input per linee sembra del tutto
+sproporzionato; inoltre, tale classe ha fatto la sua comparsa solo nelle
+versioni più recenti di Java, ragion per cui è bene conoscere anche
+alternative che siano praticabili nel caso in cui si abbia a disposizione sono
+una versione meno recente del linguaggio.</p>
+</div>
+<div class="section" id="dati-non-testuali">
+<h3>Dati non testuali<a class="headerlink" href="#dati-non-testuali" title="Link a questa intestazione">¶</a></h3>
+<p>Come ultima osservazione, si noti che in questa guida (per brevità e
+semplicità) si è trattato solo il caso di file in formato, per così dire,
+testuale. Le API di Java mettono a disposizione anche classi e metodi per il
+trattamento di dati in formato binario (ad esempio, tramite le interfacce
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/DataInput.html">DataInput</a> e <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/DataOutput.html">DataOutput</a>  e relative implementazioni), che meritano una
+discussione a se stante.</p>
+<p>Una interessante aggiunta nelle API delle nuove versioni di Java è la classe
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html">Files</a> che mette a disposizione una serie di metodi statici per leggere (e
+scrivere) con una sola chiamata l'intero contenuto di un file, come ad esempio
+il metodo <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAllBytes-java.nio.file.Path-">readAllBytes</a> che restituisce un array di <code class="docutils literal notranslate"><span class="pre">byte</span></code>, o il metodo
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAllLines-java.nio.file.Path,%20java.nio.charset.Charset-">readAllLines</a> che restituisce una <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a> di stringhe.</p>
+</div>
+</div>
+</div>
+
+
+    </main>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <a href="https://github.com/mapio/labprog"><img src="https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars" alt="GitHub stars"></a>
+      <a href="http://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a>
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg" alt="License: CC BY-SA 4.0"></a>
+      <span class="float-right">© Massimo Santini 2018 - 25/1/19</span>
+  </div>
+</footer>
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117753500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-117753500-1');
+  $(document).ready(function() {
+      $('p > img').addClass('mx-auto d-block');
+      $('.tocnav a').addClass('dropdown-item');
+      $('.tocnav ul').css('list-style-type', 'none');
+      $('.tocnav > ul').css('padding', '0');
+  });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "Massimo Santini",
+  "url": "https://santini.di.unimi.it/",
+  "sameAs": [
+    "https://www.linkedin.com/in/massimosantini/",
+    "https://twitter.com/mapio"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Input/output (ed altro) con le API di Java",
+  "image": [
+    "https://labprog.mapio.it/_static/logo.png"
+   ],
+  "datePublished": "2019-01-25T08:55:00.809614",
+  "dateModified": "2019-01-25T08:55:00.809614",
+  "author": {
+    "@type": "Person",
+    "name": "Massimo Santini"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Dipartimento di Informatica",
+    "logo": "http://www.unimi.it/img/universitaInterno.jpg"
+  },
+  "description": "Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C."
+}
+</script>
+  </body>
+</html>

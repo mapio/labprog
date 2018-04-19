@@ -1,0 +1,16 @@
+3 vuoto
+3 togli 5 pere
+2 aggiungi 3 cuffia
+3 quanti pere
+3 aggiungi 3 pere
+2 aggiungi 1 lettore mp3
+3 quanti pere
+3 togli 2 pere
+2 togli 1 cuffie
+3 quanti pere
+3 togli 2 pere
+2 quanti cuffia
+3 contiene pere
+3 vuoto
+2 quanti lettore
+1 vuoto

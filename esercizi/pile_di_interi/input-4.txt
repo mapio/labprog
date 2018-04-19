@@ -1,0 +1,52 @@
+1 init 3
+2 init 3
+1 empty
+2 empty
+1 push 1
+2 push 2
+1 push 3
+2 push 3
+1 top
+2 top
+1 push 4
+2 push 4
+1 full
+2 full
+1 push 5
+2 push 4
+1 pop
+2 pop
+1 empty
+2 empty
+1 pop
+2 pop
+1 pop
+2 pop
+1 pop
+2 pop
+3 init 3
+3 empty
+3 push 3
+3 push 4
+3 top
+3 push 5
+3 full
+3 push 6
+3 pop
+3 empty
+3 pop
+3 pop
+3 pop
+4 init 3
+4 empty
+4 push 77
+4 push 44
+4 top
+4 push 77
+4 full
+4 push 44
+4 pop
+4 empty
+4 pop
+4 pop
+4 pop

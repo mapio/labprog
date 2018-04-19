@@ -1,0 +1,35 @@
+false
+1255	7	2	con sale, pepe e noce moscata. Una volta rosolati i pezzi da una parte e
+false
+1255	7	2	con sale, pepe e noce moscata. Una volta rosolati i pezzi da una parte e
+1255	7	4	Aggiungete brodo per portare il pollo a cottura, coperto e a fuoco lento. Prima
+false
+1255	7	2	con sale, pepe e noce moscata. Una volta rosolati i pezzi da una parte e
+1255	7	4	Aggiungete brodo per portare il pollo a cottura, coperto e a fuoco lento. Prima
+1255	7	6	strizzategli sopra mezzo limone.
+false
+1255	7	0	Prendete un pollo giovane ed escludendone il collo e le zampe tagliatelo a pezzi
+1255	7	2	con sale, pepe e noce moscata. Una volta rosolati i pezzi da una parte e
+1255	7	4	Aggiungete brodo per portare il pollo a cottura, coperto e a fuoco lento. Prima
+1255	7	6	strizzategli sopra mezzo limone.
+false
+1255	7	0	Prendete un pollo giovane ed escludendone il collo e le zampe tagliatelo a pezzi
+1255	7	2	con sale, pepe e noce moscata. Una volta rosolati i pezzi da una parte e
+1255	7	4	Aggiungete brodo per portare il pollo a cottura, coperto e a fuoco lento. Prima
+1255	7	5	di levarlo dal fuoco fioritelo con un pizzico di prezzemolo quando è nel vassoio
+1255	7	6	strizzategli sopra mezzo limone.
+false
+1255	7	0	Prendete un pollo giovane ed escludendone il collo e le zampe tagliatelo a pezzi
+1255	7	1	grossi nelle giunture. Mettetelo alla sautè con il burro e l’olio e conditelo
+1255	7	2	con sale, pepe e noce moscata. Una volta rosolati i pezzi da una parte e
+1255	7	4	Aggiungete brodo per portare il pollo a cottura, coperto e a fuoco lento. Prima
+1255	7	5	di levarlo dal fuoco fioritelo con un pizzico di prezzemolo quando è nel vassoio
+1255	7	6	strizzategli sopra mezzo limone.
+true
+1255	7	0	Prendete un pollo giovane ed escludendone il collo e le zampe tagliatelo a pezzi
+1255	7	1	grossi nelle giunture. Mettetelo alla sautè con il burro e l’olio e conditelo
+1255	7	2	con sale, pepe e noce moscata. Una volta rosolati i pezzi da una parte e
+1255	7	3	dall’altra, scolate via l’unto e gettate nella sautè la farina e il vino.
+1255	7	4	Aggiungete brodo per portare il pollo a cottura, coperto e a fuoco lento. Prima
+1255	7	5	di levarlo dal fuoco fioritelo con un pizzico di prezzemolo quando è nel vassoio
+1255	7	6	strizzategli sopra mezzo limone.

@@ -1,0 +1,27 @@
+false
+5181	6	2	e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser.
+false
+5181	6	2	e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser.
+5181	6	3	E tutti quei momenti andranno perduti nel tempo,
+false
+5181	6	1	navi da combattimento in fiamme al largo dei bastioni di Orione,
+5181	6	2	e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser.
+5181	6	3	E tutti quei momenti andranno perduti nel tempo,
+false
+5181	6	1	navi da combattimento in fiamme al largo dei bastioni di Orione,
+5181	6	2	e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser.
+5181	6	3	E tutti quei momenti andranno perduti nel tempo,
+5181	6	4	come lacrime nella pioggia.
+false
+5181	6	0	Io ne ho viste cose che voi umani non potreste immaginarvi:
+5181	6	1	navi da combattimento in fiamme al largo dei bastioni di Orione,
+5181	6	2	e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser.
+5181	6	3	E tutti quei momenti andranno perduti nel tempo,
+5181	6	4	come lacrime nella pioggia.
+true
+5181	6	0	Io ne ho viste cose che voi umani non potreste immaginarvi:
+5181	6	1	navi da combattimento in fiamme al largo dei bastioni di Orione,
+5181	6	2	e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser.
+5181	6	3	E tutti quei momenti andranno perduti nel tempo,
+5181	6	4	come lacrime nella pioggia.
+5181	6	5	È tempo di morire.

@@ -1,0 +1,9 @@
+true
+false
+"uno"
+false
+"due"
+!empty
+!empty
+false
+"cinque"

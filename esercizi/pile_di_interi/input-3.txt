@@ -1,0 +1,26 @@
+2 init 3
+2 pop
+2 empty
+2 push 33
+1 init 3
+1 empty
+2 push 44
+1 push 55
+1 pop
+1 pop
+2 pop
+1 empty
+1 full
+2 top
+1 pop
+1 pop
+1 push 23
+1 push 123
+2 pop
+2 pop
+2 empty
+2 push 33
+1 top
+2 push 4
+1 push 6
+2 full

@@ -1,0 +1,15 @@
+zero
+uno
+due
+tre
+quattro
+cinque
+sei
+sette
+otto
+nove
+1
+1
+0
+9
+5

@@ -1,0 +1,9 @@
+true
+"ciao"
+true
+!full
+"metti"
+false
+"ciao"
+"mamma"
+!empty

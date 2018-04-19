@@ -1,0 +1,13 @@
+a  ghijklm  k
+b  f     n  j
+c  e     o  i
+d  d     p  h
+e  c     q  g
+f  b     r  f
+g  a     s  e
+h           d
+i           c
+j           b
+k           a
+l           z
+mnopqrstuvwxy

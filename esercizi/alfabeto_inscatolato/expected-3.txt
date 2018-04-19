@@ -1,0 +1,11 @@
+a  efghi  e
+b  d   j  d
+c  c   k  c
+d  b   l  b
+e  a   m  a
+f         z
+g         y
+h         x
+i         w
+j         v
+klmnopqrstu

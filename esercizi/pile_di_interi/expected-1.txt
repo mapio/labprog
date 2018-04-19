@@ -1,0 +1,9 @@
+true
+100
+true
+!full
+73
+false
+100
+75
+!empty

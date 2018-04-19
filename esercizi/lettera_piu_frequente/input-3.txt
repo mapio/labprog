@@ -1,0 +1,3 @@
+scrivete un programma che data una sequenza  di parole nel flusso di ingresso
+emetta nel flusso duscita il numero di volte che compare la lettera dell
+alfabeto piu frequente in tali parole 

@@ -1,0 +1,10 @@
+origano 11
+salvia 27
+farina 19
+rosmarino 6
+spinaci 32
+noci 20
+aceto 7
+sale 8
+riso 24
+mozzarella 21

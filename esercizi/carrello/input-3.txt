@@ -1,0 +1,10 @@
+1 vuoto
+1 togli 5 pere
+1 quanti pere
+1 aggiungi 3 pere
+1 quanti pere
+1 togli 2 pere
+1 quanti pere
+1 togli 2 pere
+1 contiene pere
+1 vuoto

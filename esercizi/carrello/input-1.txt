@@ -1,0 +1,7 @@
+1 vuoto
+1 aggiungi 3 cuffia
+1 aggiungi 1 lettore mp3
+1 togli 1 cuffia
+1 quanti cuffia
+1 contiene lettore mp3
+1 vuoto

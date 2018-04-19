@@ -1,0 +1,16 @@
+!empty
+true
+true
+"mamma"
+!empty
+"metti"
+true
+false
+"troppo"
+!empty
+!empty
+"troppo"
+!empty
+true
+"troppo"
+false
