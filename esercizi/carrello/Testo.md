@@ -109,9 +109,9 @@ nel flusso di ingresso, il programma emette
     1
     3
     NO
-    NO
+    SI
     0
-    NO
+    SI
 
 nel flusso di uscita.
 
