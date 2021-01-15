@@ -1,0 +1,16 @@
+!empty
+true
+true
+123
+!empty
+112
+true
+false
+101
+!empty
+!empty
+101
+!empty
+true
+191
+false

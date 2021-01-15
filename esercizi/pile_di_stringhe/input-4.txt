@@ -1,0 +1,52 @@
+1 init 3
+2 init 3
+1 empty
+2 empty
+1 push mamma
+2 push mamma
+1 push ciao
+2 push ciao
+1 top
+2 top
+1 push metti
+2 push metti
+1 full
+2 full
+1 push troppo
+2 push troppo
+1 pop
+2 pop
+1 empty
+2 empty
+1 pop
+2 pop
+1 pop
+2 pop
+1 pop
+2 pop
+3 init 3
+3 empty
+3 push mamma
+3 push ciao
+3 top
+3 push metti
+3 full
+3 push troppo
+3 pop
+3 empty
+3 pop
+3 pop
+3 pop
+4 init 3
+4 empty
+4 push mamma
+4 push ciao
+4 top
+4 push metti
+4 full
+4 push troppo
+4 pop
+4 empty
+4 pop
+4 pop
+4 pop

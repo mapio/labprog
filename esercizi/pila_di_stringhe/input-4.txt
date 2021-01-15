@@ -1,0 +1,98 @@
+init 10
+top
+empty
+full
+push pippo1
+empty
+full
+push pippo2
+empty
+full
+push pippo3
+empty
+full
+push pippo4
+empty
+full
+push pippo5
+empty
+full
+push pippo6
+empty
+full
+push pippo7
+empty
+full
+push pippo8
+empty
+full
+push pippo9
+empty
+full
+push pippo10
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+top
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop
+empty
+full
+pop

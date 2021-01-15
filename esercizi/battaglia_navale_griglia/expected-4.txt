@@ -1,0 +1,14 @@
+Non affondata dopo i colpi: (4, 1)
+Non affondata dopo i colpi: (5, 1)
+Non affondata dopo i colpi: (6, 1)
+Non affondata dopo i colpi: (6, 8)
+Non affondata dopo i colpi: (6, 9)
+Non affondata dopo i colpi: (7, 1)
+Non affondata dopo i colpi: (7, 8)
+Non affondata dopo i colpi: (8, 1)
+Non affondata dopo i colpi: (8, 8)
+Non affondata dopo i colpi: (9, 1)
+Non affondata dopo i colpi: (9, 8)
+Non tornano i conti!
+Ma non sono tutte affondate!
+Occupate: 37, libere: 63, colpite: 37, affondate: 26.

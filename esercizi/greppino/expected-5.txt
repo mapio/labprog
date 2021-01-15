@@ -1,0 +1,4 @@
+uno
+due
+tre
+sei

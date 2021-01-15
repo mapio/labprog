@@ -1,0 +1,13 @@
+init 3
+empty
+push mamma
+push ciao
+top
+push metti
+full
+push troppo
+pop
+empty
+pop
+pop
+pop

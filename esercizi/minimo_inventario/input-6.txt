@@ -1,0 +1,10 @@
+pepe 30
+cioccolato 10
+nocciole 1
+origano 11
+scalogno 6
+limone 16
+noci 13
+pomodoro 11
+spinaci 3
+curry 22

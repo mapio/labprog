@@ -1,0 +1,6 @@
+!full
+"ciao"
+false
+"ciao"
+true
+!empty

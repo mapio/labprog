@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gli Strumenti &#8212; Labprog @ UniMI 1.0-beta documentazione</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.0/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="_static/custom.css" type="text/css">
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css">
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Introduzione a GNU/Linux" href="linux.html" />
+    <link rel="prev" title="Gli esercizi" href="esercizi.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+
+    <!-- Verification for Google search -->
+    <meta name="google-site-verification" content="DLtR6Lm75qujQDCAeHv1Am-h5-g69PdfKA-r8Ut-6JY">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mapio">
+    <meta name="twitter:creator" content="@mapio">
+    <meta name="twitter:title" content="LabProg@UniMI — Dieci anni di codice">
+    <meta name="twitter:description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+    <meta name="twitter:image" content="https://labprog.mapio.it/_static/logo.png">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="LabProg@UniMI — Dieci anni di codice">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://labprog.mapio.it/">
+    <meta property="og:image" content="https://labprog.mapio.it/_static/logo.png">
+    <meta property="og:description" content="Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C.">
+    <meta property="og:site_name" content="LabProg@UniMI — Dieci anni di codice">
+    <meta property="article:published_time" content="2020-10-05T20:01:01.547727">
+    <meta property="article:modified_time" content="2020-10-05T20:01:01.547727">
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#eaf7f7",
+          "text": "#5c7291"
+        },
+        "button": {
+          "background": "#56cbdb",
+          "text": "#ffffff"
+        }
+      },
+      "position": "bottom-right",
+      "content": {
+        "message": "Questo sito utilizza cookie per raccogliere informazioni, in forma aggregata, sul numero degli utenti.",
+        "dismiss": "Va bene!",
+        "link": "Maggiori informazioni.",
+        "href": "http://www.unimi.it/62210.htm"
+      }
+    })});
+    </script>
+
+  </head><body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html">LabProg@UniMI</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="esercizi.html">Esercizi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="strumenti.html">Strumenti</a>
+      </li>
+      <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Guide
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="linux.html">GNU/Linux</a>
+               <a class="dropdown-item" href="javaio.html">Java I/O</a>
+               <a class="dropdown-item" href="cstdio.html">C I/O</a>
+             </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-list-alt"></i>
+          </a>
+          <div class="dropdown-menu tocnav" aria-labelledby="navbarDropdown2">
+          <ul>
+<li><a class="reference internal" href="#">Gli Strumenti</a><ul>
+<li><a class="reference internal" href="#breve-guida">Breve guida</a></li>
+<li><a class="reference internal" href="#documentazione">Documentazione</a></li>
+<li><a class="reference internal" href="#contenuto-di-file-e-directory">Contenuto di file e directory</a><ul>
+<li><a class="reference internal" href="#le-directory-degli-esercizi">Le directory degli esercizi</a></li>
+<li><a class="reference internal" href="#la-directory-dei-comandi">La directory dei comandi</a><ul>
+<li><a class="reference internal" href="#configurazione-dell-interprete-dei-comandi">Configurazione dell'interprete dei comandi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modalita-di-svolgimento-degli-esercizi">Modalità di svolgimento degli esercizi</a><ul>
+<li><a class="reference internal" href="#preparare-la-soluzione">Preparare la soluzione</a><ul>
+<li><a class="reference internal" href="#linguaggio-java">Linguaggio Java</a></li>
+<li><a class="reference internal" href="#script-di-shell">Script di shell</a></li>
+<li><a class="reference internal" href="#linguaggio-c">Linguaggio C</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compilare-ed-eseguire-i-test">Compilare ed eseguire i test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="search.html" method="get">
+      <input name="q" class="form-control mr-sm-2" type="text" placeholder="parola chiave">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Cerca</button>
+    </form>
+  </div>
+</nav>
+  
+
+    <div class="document">
+    <main class="container">
+        
+  <div class="section" id="gli-strumenti">
+<h1>Gli Strumenti<a class="headerlink" href="#gli-strumenti" title="Link a questa intestazione">¶</a></h1>
+<p>Gli esercizi contenuti nel <em>repository</em> possono essere svolti semplicemente
+leggendo il testo dell'esercizio e procedendo in modo tradizionale.</p>
+<p>Gli studenti che intendono avvalersi dei <em>testcase</em> (e degli strumenti di
+supporto che ne facilitano l'uso ai fini della <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_testing">verifica funzionale</a>) possono scaricare un
+<a class="reference external" href="https://github.com/mapio/labprog/archive/master.zip">archivio compresso</a>
+dell'intero <em>repository</em>, oppure ottenere un <em>clone</em> locale con il comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">mapio</span><span class="o">/</span><span class="n">labprog</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Una volta configurato il sistema per l'uso degli script contenuti nella cartella
+<code class="file docutils literal notranslate"><span class="pre">bin/</span></code>, vi potete apprestare a svolgere gli esercizi seguendo i passi
+della seguente (una guida più dettagliata è riportata nel seguito di questa
+pagina):</p>
+<div class="section" id="breve-guida">
+<h2>Breve guida<a class="headerlink" href="#breve-guida" title="Link a questa intestazione">¶</a></h2>
+<ul>
+<li><p>portatevi nella directory del primo esercizio (ad esempio <code class="file docutils literal notranslate"><span class="pre">salve_mondo</span></code>),</p></li>
+<li><p>leggete la traccia dell'esercizio contenuta nel file <code class="file docutils literal notranslate"><span class="pre">Testo.md</span></code>,</p></li>
+<li><p>implementate la vostra soluzione in uno (o più) file (salvati nella directory
+corrente, con <em>nome qualunuque</em> purché abbiano estensione <code class="samp docutils literal notranslate"><span class="pre">.java</span></code>,
+<code class="samp docutils literal notranslate"><span class="pre">.sh</span></code> o <code class="samp docutils literal notranslate"><span class="pre">.c</span></code>), avendo cura di definire <em>una ed una sola</em> funzione,
+o metodo, di nome <code class="samp docutils literal notranslate"><span class="pre">main</span></code> (nel caso di script di shell, l'estensione deve
+essere <code class="samp docutils literal notranslate"><span class="pre">.sh</span></code> e ci deve essere un solo file);</p></li>
+<li><p>eseguite il comando:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>verifica
+</pre></div>
+</div>
+<p>che compila la soluzione e verifica il suo comportamento sui file di test;
+se l'esecuzione del comando riporta errori (di compilazione, o collegamento),
+correggeteli prima di procedere, quindi accertatevi che sui casi d'esempio il
+vostro programma si comporti come atteso, nel caso non accada, correggete gli
+errori prima di procedere.</p>
+</li>
+<li><p>passate a considerare l'esercizio successivo seguendo di nuovo queste
+istruzioni (dal secondo punto in poi).</p></li>
+</ul>
+</div>
+<div class="section" id="documentazione">
+<h2>Documentazione<a class="headerlink" href="#documentazione" title="Link a questa intestazione">¶</a></h2>
+<p>Durante lo svolgimento degli esercizi è buona norma fare riferimento ai libri di
+testo e (a seconda del linguaggio scelto):</p>
+<ul class="simple">
+<li><p>alla documentazione delle <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/">API di Java</a> (la libreria standard di Java), della
+<a class="reference external" href="https://www.gnu.org/software/libc/manual/html_node/">GNU C Library</a> (la libreria standard del C), del <a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/javac/index.html">compilatore javac</a>, della
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html">macchina virtuale java</a>, del <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc-7.3.0/gcc/">compilatore GCC</a>;</p></li>
+<li><p>alle guide <a class="reference internal" href="javaio.html#javaio-label"><span class="std std-ref">Input/output (ed altro) con le API di Java</span></a> e <a class="reference internal" href="cstdio.html#cstdio-label"><span class="std std-ref">Input/output (ed altro) con la libreria standard in C</span></a> (con esempi di <em>codice
+sorgente</em> che si possono utilizzare nella soluzione degli esercizi);</p></li>
+</ul>
+</div>
+<div class="section" id="contenuto-di-file-e-directory">
+<span id="ambiente-label"></span><h2>Contenuto di file e directory<a class="headerlink" href="#contenuto-di-file-e-directory" title="Link a questa intestazione">¶</a></h2>
+<p>Il <em>repository</em> contiene:</p>
+<p><code class="file docutils literal notranslate"><span class="pre">README.md</span></code>, <code class="file docutils literal notranslate"><span class="pre">LICENSE-CC.txt</span></code> e <code class="file docutils literal notranslate"><span class="pre">LICENSE-GPL.txt</span></code></p>
+<blockquote>
+<div><p>Una breve descrizione del contenuto (con link a questo sito) e dei
+termini di licenza di uso del materiale.</p>
+</div></blockquote>
+<p><code class="file docutils literal notranslate"><span class="pre">bin/</span></code></p>
+<blockquote>
+<div><p>La directory che contiene i comandi di supporto ai test.</p>
+</div></blockquote>
+<p><code class="file docutils literal notranslate"><span class="pre">esercizi/</span></code></p>
+<blockquote>
+<div><p>Le directory contenente gli esercizi.</p>
+</div></blockquote>
+<p>Si raccomanda di <strong>non modificare, o cancellare, nessuno tra i file qui
+descritti</strong>, ma di creare e modificare solo i file con esensione <code class="file docutils literal notranslate"><span class="pre">.java</span></code>,
+<code class="file docutils literal notranslate"><span class="pre">.sh</span></code>, <code class="file docutils literal notranslate"><span class="pre">.c</span></code> (ed eventualmente <code class="file docutils literal notranslate"><span class="pre">.h</span></code>) corrispondenti alle
+proprie soluzioni.</p>
+<div class="section" id="le-directory-degli-esercizi">
+<h3>Le directory degli esercizi<a class="headerlink" href="#le-directory-degli-esercizi" title="Link a questa intestazione">¶</a></h3>
+<p>Le directory <code class="file docutils literal notranslate"><span class="pre">esercizio/&lt;NOME&gt;</span></code> (dove <code class="samp docutils literal notranslate"><span class="pre">&lt;NOME&gt;</span></code> è il nome
+dell'esercizio) contengono i seguenti file (dove <code class="samp docutils literal notranslate"><span class="pre">M</span></code> è un numero,
+generalmente compreso tra 1 e 3):</p>
+<p><code class="file docutils literal notranslate"><span class="pre">Testo.md</span></code></p>
+<blockquote>
+<div><p>Questo file contiene il testo dell'esercizio. Il suo contenuto è descritto
+in una sezione seguente.</p>
+</div></blockquote>
+<p><code class="file docutils literal notranslate"><span class="pre">input-1.txt</span></code> … <code class="file docutils literal notranslate"><span class="pre">input-M.txt</span></code></p>
+<blockquote>
+<div><p>Questi file (se presenti) contengono alcuni esempi di <em>input</em>.</p>
+</div></blockquote>
+<p><code class="file docutils literal notranslate"><span class="pre">args-1.txt</span></code> … <code class="file docutils literal notranslate"><span class="pre">args-M.txt</span></code></p>
+<blockquote>
+<div><p>Questi file (se presenti) contengono esempi di <em>argomenti</em> sulla linea di
+comando.</p>
+</div></blockquote>
+<p><code class="file docutils literal notranslate"><span class="pre">expected-1.txt</span></code> … <code class="file docutils literal notranslate"><span class="pre">expected-M.txt</span></code></p>
+<blockquote>
+<div><p>Questi file contengono esempi di <em>output atteso</em>.</p>
+</div></blockquote>
+<p>I file di esempio possono essere utilizzati in questo modo. Supponete che il
+file <code class="file docutils literal notranslate"><span class="pre">input-1.txt</span></code> contenga le righe:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ciao
+mamma
+</pre></div>
+</div>
+<p>ed il file <code class="file docutils literal notranslate"><span class="pre">args-1.txt</span></code> contenga le stringhe:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>uno <span class="m">2</span> <span class="m">3</span>
+</pre></div>
+</div>
+<p>e, per finire, che il file <code class="file docutils literal notranslate"><span class="pre">actual-1.txt</span></code> contenga le righe:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ben fatto
+mamma
+</pre></div>
+</div>
+<p>Se, dopo aver compilato la vostra soluzione, invocandola con gli argomenti
+<code class="samp docutils literal notranslate"><span class="pre">2</span> <span class="pre">3</span></code> sulla riga di comando e dandole in input nel flusso di ingresso:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ciao
+mamma
+</pre></div>
+</div>
+<p>essa non produce in output nel flusso d'uscita:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ben fatto
+mamma
+</pre></div>
+</div>
+<p>significa che la vostra soluzione è errata. Analogo procedimento vale per gli
+altri file di esempio.</p>
+<p>Osservate che questa verifica può essere svolta in modo automatico su tutti i
+file di esempio tramite il comando <code class="samp docutils literal notranslate"><span class="pre">verifica</span></code>.</p>
+</div>
+<div class="section" id="la-directory-dei-comandi">
+<h3>La directory dei comandi<a class="headerlink" href="#la-directory-dei-comandi" title="Link a questa intestazione">¶</a></h3>
+<p>La directory <code class="file docutils literal notranslate"><span class="pre">bin</span></code> contiene i seguenti comandi:</p>
+<p><code class="file docutils literal notranslate"><span class="pre">soluzione</span></code></p>
+<blockquote>
+<div><p>Questo comando effettua la compilazione dell'eserizio nella directory
+corrente e lo pone in esecuzione, può essere invocato con argomenti sulla
+linea di comando e legge l'eventuale flusso di ingresso.</p>
+</div></blockquote>
+<p><code class="file docutils literal notranslate"><span class="pre">verifica</span></code></p>
+<blockquote>
+<div><p>Questo comando, dopo aver effettuato la compilazione dell'esercizio nella
+directory corrente, ne verifica il funzionamento su tutti i casi d'esempio
+riportando il risultato dell'elaborazio.</p>
+</div></blockquote>
+<p>Tali comandi possono essere invocati dall'interprete a riga di comando del
+proprio sistema operativo, una volta che ci si è posizionati nella directory
+dell'esercizio.</p>
+<div class="section" id="configurazione-dell-interprete-dei-comandi">
+<h4>Configurazione dell'interprete dei comandi<a class="headerlink" href="#configurazione-dell-interprete-dei-comandi" title="Link a questa intestazione">¶</a></h4>
+<p>Se si usa l'interprete di comandi <strong class="command">bash</strong> col sistema operativo
+GNU/Linux è possibile invocare i comandi precedenti specificandone il solo nome
+(e non il percorso completo) semplicemente aggiornando la variabile d'ambiente
+<code class="samp docutils literal notranslate"><span class="pre">PATH</span></code>. Per farlo è sufficiente portarsi nella directory in cui è
+contenuta la cartella <code class="file docutils literal notranslate"><span class="pre">bin/</span></code> ed impartire il comando:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Una configurazione del tutto simile è possibile per altri interpreti di comandi
+(anche in altri sistemi operativi).</p>
+</div>
+</div>
+</div>
+<div class="section" id="modalita-di-svolgimento-degli-esercizi">
+<span id="svolgimento-label"></span><h2>Modalità di svolgimento degli esercizi<a class="headerlink" href="#modalita-di-svolgimento-degli-esercizi" title="Link a questa intestazione">¶</a></h2>
+<p>Il materiale relativo a ciascun esercizio è contenuto in una directory di nome
+<code class="file docutils literal notranslate"><span class="pre">esercizi/&lt;NOME&gt;</span></code> dove <code class="samp docutils literal notranslate"><span class="pre">&lt;NOME&gt;</span></code> è il nome dell'esercizio.</p>
+<div class="section" id="preparare-la-soluzione">
+<h3>Preparare la soluzione<a class="headerlink" href="#preparare-la-soluzione" title="Link a questa intestazione">¶</a></h3>
+<p>Per prima cosa lo studente si deve spostare nella directory dell'esercizio che
+intende risolvere. Ad esempio, per risolvere l'esercizio <cite>disegna_v</cite> occorre spostarsi
+nella directory <code class="file docutils literal notranslate"><span class="pre">disegna_v</span></code> con il comando:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> esercizi/disegna_v
+</pre></div>
+</div>
+<p>Il testo dell'esercizio è contenuto nel file <code class="file docutils literal notranslate"><span class="pre">Testo.md</span></code> (che è un semplice
+file di testo) da leggere attentamente, che è diviso nelle seguenti sezioni
+(che, tranne per la prima, potrebbero non essere presenti):</p>
+<dl class="simple">
+<dt>Descrizione</dt><dd><p>Questa sezione contiene una descrizione dell'esercizio.</p>
+</dd>
+<dt>Vincoli</dt><dd><p>Questa sezione, se presente, contiene le specifiche precise del formato dei
+dati in ingresso ed uscita. Si osservi che <em>una soluzione che non rispetti i
+vincoli espressi in questa sezione non è considerata corretta</em> e, pertanto,
+non sarà valutata positivamente all'esame.</p>
+</dd>
+<dt>Esempio</dt><dd><p>Questa sezione contiene uno, o più, esempi di esecuzione.</p>
+</dd>
+</dl>
+<p>La soluzione (tranne che quando diversamente specificato dal testo) deve essere
+implementata in Java, con uno script o in C (tipicamente a seconda dell'anno cui è
+iscritto lo studente).</p>
+<div class="section" id="linguaggio-java">
+<h4>Linguaggio Java<a class="headerlink" href="#linguaggio-java" title="Link a questa intestazione">¶</a></h4>
+<p>Nel primo caso, la soluzione dev'essere costituita da uno, o più, file (dal
+<em>nome qualunque</em>, purché con <em>estensione</em> <code class="samp docutils literal notranslate"><span class="pre">.java</span></code> e salvati <em>nella
+directory dell'esercizio</em> cui fanno riferimento) di cui uno ed uno solo contenga
+(all'interno di una classe pubblica) la definizione di un metodo di nome
+<code class="samp docutils literal notranslate"><span class="pre">main</span></code> con segnatura</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>che, se eseguita, produce il comportamento descritto dal testo dell'esercizio
+(per maggiore dettaglio si veda il seguito).</p>
+<p>Il codice deve aderire alle specifiche di Java versione 8 ed usare
+esclusivamente le API standard del linguaggio, <strong>non sarà accettato</strong> codice di
+<strong>versioni successive di Java</strong> o basato su <strong>librerie addizionali</strong> (come la
+libreria <code class="samp docutils literal notranslate"><span class="pre">prog</span></code>).</p>
+</div>
+<div class="section" id="script-di-shell">
+<h4>Script di shell<a class="headerlink" href="#script-di-shell" title="Link a questa intestazione">¶</a></h4>
+<p>Nel caso degli script di shell, la soluzione dev'essere costituita da <strong>un solo
+file</strong> (dal <em>nome qualunque</em>, purché con <em>estensione</em> <code class="samp docutils literal notranslate"><span class="pre">.sh</span></code> e salvato
+<em>nella directory dell'esercizio</em> cui fa riferimento).</p>
+<p>Tale file, se eseguito, produce il comportamento descritto dal testo
+dell'esercizio (per maggiore dettaglio si veda il seguito) e dev'essere tale che
+l'ultimo comando restituisca un <em>exit code</em> pari a 0.</p>
+<p>Il codice deve invocare comandi di shell, o di sistema, normalmente presenti
+nella toolchain standard GNU/Linux.</p>
+</div>
+<div class="section" id="linguaggio-c">
+<h4>Linguaggio C<a class="headerlink" href="#linguaggio-c" title="Link a questa intestazione">¶</a></h4>
+<p><strong>Nota bene</strong>: dall'A.A. 2016/17 non sono più accettate soluzioni in C.</p>
+<p>Nel caso del linguaggio C, la soluzione dev'essere costituita da uno, o più,
+file (dal <em>nome qualunque</em>, purché con <em>estensione</em> <code class="samp docutils literal notranslate"><span class="pre">.c</span></code> e salvati <em>nella
+directory dell'esercizio</em> cui fanno riferimento) di cui uno ed uno solo contenga
+la definizione di una funzione di nome <code class="samp docutils literal notranslate"><span class="pre">main</span></code> con segnatura</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">main</span><span class="p">(</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>che, se eseguita, produce il comportamento descritto dal testo dell'esercizio
+(per maggiore dettaglio si veda il seguito) e termini con l'istruzione
+<code class="samp docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code> (questo fatto è <em>cruciale</em> per il processo di verifica con il
+comando <code class="samp docutils literal notranslate"><span class="pre">verifica</span></code>).</p>
+<p>Il codice deve aderire allo standard ANSI C (altrimenti detto C89) e relativa
+libreria standard, <strong>non sarà accettato codice C99 o C++</strong>, o basato su librerie
+addizionali.</p>
+</div>
+</div>
+<div class="section" id="compilare-ed-eseguire-i-test">
+<h3>Compilare ed eseguire i test<a class="headerlink" href="#compilare-ed-eseguire-i-test" title="Link a questa intestazione">¶</a></h3>
+<p>Una volta implementata la soluzione, lo studente può verificare che compili (e
+colleghi <em>link</em>, nel caso del C) correttamente tramite il comando:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>soluzione
+</pre></div>
+</div>
+<p>che, qualora l'eventuale compilazione e collegamento avvengano senza errori,
+pone in esecuzione la soluzione. Inoltre, lo studente può accertarsi che sui
+dati forniti come esempio si comporti in modo inteso tramite il comando:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>verifica
+</pre></div>
+</div>
+<p>Se ci sono differenze tra l'output prodotto dalla soluzione dello studente e
+quello provvisto dai file di esempio tale comando <em>terminerà con un messaggio
+d'errore</em>. Per comodità, è presente anche comando:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pulisci
+</pre></div>
+</div>
+<p>che ha l'effetto di <em>cancellare i file prodotti dalla compilazione, collegamento
+ed esecuzione dei test</em> (nonché i file che iniziano per <kbd class="kbd docutils literal notranslate">~</kbd> che sono le
+<em>copie di backup</em> create dall'editor).</p>
+<p>Si osservi che i suddetti comandi sono offerti come ausilio allo studente, ma il
+loro uso è di fatto completamente equivalente all'abituale compilazone in Java:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>javac *.java
+</pre></div>
+</div>
+<p>oppure alla abituale compilazione in C:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gcc -o soluzione -O3 -Wall -ansi --pedantic-errors *.c
+</pre></div>
+</div>
+<p>e all'esecuzione, in Java, di:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>java Soluzione arg1 ... argK &lt; input-N.txt &gt; actual-N.txt
+</pre></div>
+</div>
+<p>oppure, per gli script di shell, di:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>bash soluzione.sh arg1 ... argK &lt; input-N.txt &gt; actual-N.txt
+</pre></div>
+</div>
+<p>oppure, in C, di:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./soluzione arg1 ... argK &lt; input-N.txt &gt; actual-N.txt
+</pre></div>
+</div>
+<p>dove <code class="samp docutils literal notranslate"><span class="pre">Soluzione</span></code> sia il nome della classe pubblica ove è definito il
+metodo <code class="samp docutils literal notranslate"><span class="pre">main</span></code> e <code class="samp docutils literal notranslate"><span class="pre">arg1</span> <span class="pre">...</span> <span class="pre">argK</span></code> è il contenuto del file
+<code class="file docutils literal notranslate"><span class="pre">args-N.txt</span></code>.</p>
+<p>A tale esecuzione, può essere fatta seguire manualmente la <em>verifica delle
+differenze</em> tra il risultato <code class="samp docutils literal notranslate"><span class="pre">actual-N.txt</span></code> prodotto dal proprio codice e
+quello atteso <code class="samp docutils literal notranslate"><span class="pre">actual-N.txt</span></code>, ad esempio tramite il comando:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>diff -b actual-N.txt expected-N.txt <span class="p">|</span> tee diffs-N.txt
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </main>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <a href="https://github.com/mapio/labprog"><img src="https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars" alt="GitHub stars"></a>
+      <a href="http://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a>
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg" alt="License: CC BY-SA 4.0"></a>
+      <span class="float-right">© Massimo Santini 2018 - 5/10/20</span>
+  </div>
+</footer>
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117753500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-117753500-1');
+  $(document).ready(function() {
+      $('p > img').addClass('mx-auto d-block');
+      $('.tocnav a').addClass('dropdown-item');
+      $('.tocnav ul').css('list-style-type', 'none');
+      $('.tocnav > ul').css('padding', '0');
+  });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "Massimo Santini",
+  "url": "https://santini.di.unimi.it/",
+  "sameAs": [
+    "https://www.linkedin.com/in/massimosantini/",
+    "https://twitter.com/mapio"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Gli Strumenti",
+  "image": [
+    "https://labprog.mapio.it/_static/logo.png"
+   ],
+  "datePublished": "2020-10-05T20:01:01.547727",
+  "dateModified": "2020-10-05T20:01:01.547727",
+  "author": {
+    "@type": "Person",
+    "name": "Massimo Santini"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Dipartimento di Informatica",
+    "logo": "http://www.unimi.it/img/universitaInterno.jpg"
+  },
+  "description": "Una raccolta di più di duecentocinquanta esercizi corredati di testcase e guide su GNU/Linux, Java e C."
+}
+</script>
+<!-- Ticksel v1.0 -->
+<script type="text/javascript">
+  var _tcfg = _tcfg || [];
+  (function() {
+    _tcfg.push(["tags", ""]);
+    var u="https://cdn.ticksel.com/js/analytics_v1.0.js"; _tcfg.push(["account_id", 1387073]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.src=u; g.setAttribute("crossorigin", "anonymous");
+    g.setAttribute("integrity", "sha256-7grd8jMivCG0iCcJ7m/Ny4gvWb0mPVpFhRQovLkaUl8=");
+    s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><img src="https://beacon.ticksel.com/beam?account_id=1387073&referrer=&tags=" style="border:0;" width="0" height="0" alt="" /></noscript>
+<!-- End Ticksel Code -->
+  </body>
+</html>

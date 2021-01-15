@@ -1,0 +1,5 @@
+pane 10
+vino 1
+insalata 3
+tonno 1
+olio 2

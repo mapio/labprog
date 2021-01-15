@@ -1,0 +1,10 @@
+rosmarino 8
+spinaci 25
+zenzero 12
+formaggio 15
+riso 17
+latte 14
+spaghetti 7
+burro 3
+origano 15
+aceto 32

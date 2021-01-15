@@ -1,0 +1,17 @@
+1 init 5
+1 push uno
+1 push due
+2 init 3
+2 push tre
+2 push quattro
+3 init 1
+3 empty
+1 push cinque
+2 full
+1 pop
+1 top
+1 pop
+3 pop
+3 pop
+2 empty
+1 pop

@@ -1,0 +1,26 @@
+2 init 3
+2 pop
+2 empty
+2 push troppo
+1 init 3
+1 empty
+2 push metti
+1 push mamma
+1 pop
+1 pop
+2 pop
+1 empty
+1 full
+2 top
+1 pop
+1 pop
+1 push metti
+1 push troppo
+2 pop
+2 pop
+2 empty
+2 push mamma
+1 top
+2 push ciao
+1 push ciao
+2 full
